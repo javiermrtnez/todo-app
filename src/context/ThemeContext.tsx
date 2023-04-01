@@ -11,7 +11,12 @@ export const ThemeContext = createContext({
 });
 
 export const ThemeContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState(THEMES.light);
+  const getSystemTheme = () =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? THEMES.dark
+      : THEMES.light;
+
+  const [theme, setTheme] = useState(getSystemTheme());
 
   const toggleTheme = () => {
     theme === THEMES.light ? setTheme(THEMES.dark) : setTheme(THEMES.light);
