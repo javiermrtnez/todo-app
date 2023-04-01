@@ -24,7 +24,7 @@ const App: React.FC = () => {
         {
           id: allTodos.length,
           value: newTodoValue,
-          status: TODO_STATUS.active,
+          status: TODO_STATUS.ACTIVE,
         },
       ]);
 
