@@ -4,14 +4,9 @@ import iconMoon from './assets/icons/icon-moon.svg';
 import iconSun from './assets/icons/icon-sun.svg';
 import { ThemeContext, THEMES } from './context/ThemeContext';
 
-const TODO_STATUS = {
-  ACTIVE: 'ACTIVE',
-  COMPLETED: 'COMPLETED',
-};
-
 const App: React.FC = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const [allTodos, setAllTodos] = useState([]);
+  const [toDos, setToDos] = useState([]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -19,18 +14,19 @@ const App: React.FC = () => {
     const newTodoValue = e.target.elements.newTodo.value;
 
     if (newTodoValue) {
-      setAllTodos([
-        ...allTodos,
-        {
-          id: allTodos.length,
-          value: newTodoValue,
-          status: TODO_STATUS.ACTIVE,
-        },
-      ]);
+      const newTodo = {
+        id: toDos.length,
+        value: newTodoValue.trim(),
+        active: true,
+      };
+
+      setToDos([newTodo, ...toDos]);
 
       e.target.reset();
     }
   };
+
+  const itemsLeft = toDos.filter((toDo) => toDo.active).length;
 
   return (
     <div className='todo-app'>
@@ -46,12 +42,19 @@ const App: React.FC = () => {
         <input placeholder='Create a new todo...' name='newTodo' />
       </form>
 
-      <div className='todos-container'>
-        {allTodos.length !== 0 &&
-          allTodos.map(({ id, value }) => {
-            return <div key={id}>{value}</div>;
-          })}
-      </div>
+      {toDos.length > 0 && (
+        <div className='todos-container'>
+          {toDos.map(({ id, value }) => (
+            <div className='todo-item' key={id}>
+              <span>{value}</span>
+            </div>
+          ))}
+
+          <div className='todo-resume-item'>
+            <span>{itemsLeft} items left</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

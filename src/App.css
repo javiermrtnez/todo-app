@@ -25,13 +25,15 @@ h1 {
 }
 
 .new-todo-container {
+    display: flex;
+
     width: 100%;
-    height: 60px;
+    height: 70px;
     background-color: var(--card-background-color);
     border-radius: 5px;
     padding: 15px 20px;
 
-    display: flex;
+    box-shadow: 0 0 10px #1617221c;
 }
 
 input {
@@ -43,10 +45,35 @@ input::placeholder {
 }
 
 .todos-container {
-    width: 100%;
-    height: 400px;
-    background-color: var(--card-background-color);
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 
+    width: 100%;
     box-shadow: 0 0 10px #1617221c;
+}
+
+.todo-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70px;
+    padding: 15px 20px;
+    background-color: var(--card-background-color);
+    border-bottom: 1px solid var(--separator-color);
+}
+
+.todo-resume-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--input-placeholder-color);
+    font-size: 14px;
+    height: 50px;
+    padding: 15px 20px;
+    background-color: var(--card-background-color);
+    border-radius: 0 0 5px 5px;
+}
+
+.todo-item:first-of-type {
+    border-radius: 5px 5px 0 0;
 }
