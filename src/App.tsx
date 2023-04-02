@@ -28,6 +28,21 @@ const App: React.FC = () => {
 
   const itemsLeft = toDos.filter((toDo) => toDo.active).length;
 
+  const handleCheckboxClick = (id) => {
+    setToDos((prevTodos) => {
+      return prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, active: !todo.active } : todo
+      );
+    });
+
+    // Esta opción es igual que la anterior pero usando el propio estado en vez del previo estado
+    // setToDos(
+    //   toDos.map((todo) =>
+    //     todo.id === id ? { ...todo, active: !todo.active } : todo
+    //   )
+    // );
+  };
+
   return (
     <div className='todo-app'>
       <div className='header-container'>
@@ -44,9 +59,18 @@ const App: React.FC = () => {
 
       {toDos.length > 0 && (
         <div className='todos-container'>
-          {toDos.map(({ id, value }) => (
+          {toDos.map(({ id, value, active }) => (
             <div className='todo-item' key={id}>
-              <span>{value}</span>
+              <input
+                type='checkbox'
+                onClick={() => {
+                  handleCheckboxClick(id);
+                }}
+              />
+
+              <span className={`todo-text${!active ? ' completed' : ''}`}>
+                {value}
+              </span>
             </div>
           ))}
 

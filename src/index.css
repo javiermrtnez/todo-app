@@ -5,7 +5,7 @@
 
   /* PRIMARY COLORS */
   --bright-blue: hsl(220, 98%, 61%);
-  --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --check-background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   --white: #FFFFFF;
 
   /* NEUTRAL COLORS */
@@ -31,22 +31,24 @@
   --font-weight-bold: 700;
 }
 
-:root[data-theme="dark"] {
+:root[data-theme="dark-theme"] {
   --app-background-color: hsl(235, 21%, 11%);
   --font-color: #afb1ca;
   --input-placeholder-color: #74768c;
   --card-background-color: hsl(235, 24%, 19%);
   --separator-color: #34364c;
   --backgroundg-image-desktop: url("./assets/backgrounds/bg-desktop-dark.jpg");
+  --backgroundg-mobile-desktop: url("./assets/backgrounds/bg-mobile-dark.jpg");
 }
 
-:root[data-theme="light"] {
+:root[data-theme="light-theme"] {
   --app-background-color: hsl(0, 0%, 98%);
   --font-color: #48494e;
   --input-placeholder-color: #afaeb4;
   --card-background-color: #FFFFFF;
   --separator-color: #e7e7eb;
   --backgroundg-image-desktop: url("./assets/backgrounds/bg-desktop-light.jpg");
+  --backgroundg-mobile-desktop: url("./assets/backgrounds/bg-mobile-light.jpg");
 }
 
 body {
@@ -60,8 +62,13 @@ body {
   background-position: top;
   background-size: contain;
 
-  /* transition: background 0.5s ease, color 0.5s ease; */
   transition: color 350ms ease 0s, background 350ms ease 0s;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-image: var(--backgroundg-mobile-desktop);
+  }
 }
 
 #root {

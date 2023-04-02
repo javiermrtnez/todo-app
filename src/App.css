@@ -7,7 +7,7 @@
     align-items: center;
     gap: 30px;
 
-    padding: 85px 0px;
+    margin: 85px 20px;
 }
 
 .header-container {
@@ -54,9 +54,9 @@ input::placeholder {
 
 .todo-item {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 70px;
+    align-items: center;
+    gap: 17.5px;
+    min-height: 70px;
     padding: 15px 20px;
     background-color: var(--card-background-color);
     border-bottom: 1px solid var(--separator-color);
@@ -76,4 +76,39 @@ input::placeholder {
 
 .todo-item:first-of-type {
     border-radius: 5px 5px 0 0;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    width: 22.5px;
+    height: 22.5px;
+    border-radius: 50%;
+    border: 2px solid var(--separator-color);
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-image: var(--check-background);
+}
+
+input[type="checkbox"]:checked::after {
+    content: url('./assets/icons/icon-check.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.todo-text {
+    /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
+    width: 100%;
+}
+
+.completed {
+    color: var(--input-placeholder-color);
+    text-decoration: line-through;
 }

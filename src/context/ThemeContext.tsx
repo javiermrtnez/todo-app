@@ -1,8 +1,8 @@
 import { useState, useEffect, createContext } from 'react';
 
 export const THEMES = {
-  light: 'light',
-  dark: 'dark',
+  light: 'light-theme',
+  dark: 'dark-theme',
 };
 
 export const ThemeContext = createContext({
