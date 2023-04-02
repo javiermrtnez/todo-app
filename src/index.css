@@ -86,3 +86,12 @@ button {
 button img {
   vertical-align: middle;
 }
+
+/* Disable text selection on buttons */
+button {
+  user-select: none;
+  -webkit-user-select: none;
+  /* For iOS Safari */
+  -webkit-touch-callout: none;
+  touch-action: none;
+}
