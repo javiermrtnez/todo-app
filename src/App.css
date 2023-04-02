@@ -116,7 +116,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:hover {
-    border-color: hsl(241, 87%, 66%);
+    border-color: #8b9af9;
     transition: border-color 350ms ease 0s;
 }
 
