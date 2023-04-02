@@ -18,9 +18,42 @@ const EMPTY_TODO_FILTERS_TEXT = {
   COMPLETE: 'completed',
 };
 
+const MOCK_DATA = [
+  {
+    id: 0,
+    value: 'Complete online JavaScript course',
+    active: false,
+  },
+  {
+    id: 1,
+    value: 'Jog around the park 3x',
+    active: true,
+  },
+  {
+    id: 2,
+    value: '10 minutes meditation',
+    active: true,
+  },
+  {
+    id: 3,
+    value: 'Read for 1 hour',
+    active: true,
+  },
+  {
+    id: 4,
+    value: 'Pick up groceries',
+    active: true,
+  },
+  {
+    id: 5,
+    value: 'Complete Todo App on Frontend Mentor',
+    active: true,
+  },
+];
+
 const App: React.FC = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const [toDos, setToDos] = useState([]);
+  const [toDos, setToDos] = useState(MOCK_DATA);
   const [filteredToDos, setFilteredToDos] = useState(toDos);
   const [filter, setFilter] = useState(FILTERS.ALL);
 
