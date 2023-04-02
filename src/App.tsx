@@ -41,7 +41,7 @@ const App: React.FC = () => {
 
     const newTodoValue = e.target.elements.newTodo.value;
 
-    if (newTodoValue) {
+    if (newTodoValue !== '') {
       const newTodo = {
         id: toDos.length,
         value: newTodoValue.trim(),
@@ -55,18 +55,18 @@ const App: React.FC = () => {
   };
 
   const handleCheckboxClick = (idToComplete) => {
-    setToDos((prevTodos) => {
-      return prevTodos.map((todo) =>
+    setToDos(
+      toDos.map((todo) =>
         todo.id === idToComplete ? { ...todo, active: !todo.active } : todo
-      );
-    });
+      )
+    );
 
     // Esta opción es igual que la anterior pero usando el propio estado en vez del previo estado
-    // setToDos(
-    //   toDos.map((todo) =>
-    //     todo.id === id ? { ...todo, active: !todo.active } : todo
-    //   )
-    // );
+    // setToDos((prevTodos) => {
+    //   return prevTodos.map((todo) =>
+    //     todo.id === idToComplete ? { ...todo, active: !todo.active } : todo
+    //   );
+    // });
   };
 
   const handleRemoveButton = (idToRemove) => {
