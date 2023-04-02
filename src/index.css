@@ -38,6 +38,7 @@
   --input-placeholder-color: #74768c;
   --card-background-color: hsl(235, 24%, 19%);
   --separator-color: #34364c;
+  --active-filter-color: #5777c8;
   --backgroundg-image-desktop: url("./assets/backgrounds/bg-desktop-dark.jpg");
   --backgroundg-mobile-desktop: url("./assets/backgrounds/bg-mobile-dark.jpg");
 }
@@ -49,6 +50,7 @@
   --input-placeholder-color: #afaeb4;
   --card-background-color: #FFFFFF;
   --separator-color: #e7e7eb;
+  --active-filter-color: #5e7ebd;
   --backgroundg-image-desktop: url("./assets/backgrounds/bg-desktop-light.jpg");
   --backgroundg-mobile-desktop: url("./assets/backgrounds/bg-mobile-light.jpg");
 }
