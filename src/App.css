@@ -102,10 +102,17 @@ input[type="checkbox"]:checked::after {
 }
 
 .todo-text {
-    /* overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis; */
+    overflow: hidden;
+    word-wrap: break-word;
+
+    /* 40px = ancho del checkbox (22.5px) + gap entre checkbox y texto (17.5px) */
+    max-width: calc(100% - 40px);
+}
+
+.todo-empty-text {
     width: 100%;
+    text-align: center;
+    color: var(--input-placeholder-color);
 }
 
 .completed {

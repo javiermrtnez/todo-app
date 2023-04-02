@@ -57,9 +57,9 @@ const App: React.FC = () => {
         <input placeholder='Create a new todo...' name='newTodo' />
       </form>
 
-      {toDos.length > 0 && (
-        <div className='todos-container'>
-          {toDos.map(({ id, value, active }) => (
+      <div className='todos-container'>
+        {toDos.length > 0 ? (
+          toDos.map(({ id, value, active }) => (
             <div className='todo-item' key={id}>
               <input
                 type='checkbox'
@@ -72,13 +72,17 @@ const App: React.FC = () => {
                 {value}
               </span>
             </div>
-          ))}
-
-          <div className='todo-resume-item'>
-            <span>{itemsLeft} items left</span>
+          ))
+        ) : (
+          <div className='todo-item'>
+            <span className='todo-empty-text'>No todo items left!</span>
           </div>
+        )}
+
+        <div className='todo-resume-item'>
+          <span>{itemsLeft} items left</span>
         </div>
-      )}
+      </div>
     </div>
   );
 };
