@@ -78,4 +78,9 @@ body {
 
 button {
   cursor: pointer;
+  height: 100%;
+}
+
+button img {
+  vertical-align: middle;
 }

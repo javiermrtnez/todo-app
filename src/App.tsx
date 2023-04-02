@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import './App.css';
 import iconMoon from './assets/icons/icon-moon.svg';
 import iconSun from './assets/icons/icon-sun.svg';
+import iconCross from './assets/icons/icon-cross.svg';
 import { ThemeContext, THEMES } from './context/ThemeContext';
 
 const App: React.FC = () => {
@@ -28,10 +29,10 @@ const App: React.FC = () => {
 
   const itemsLeft = toDos.filter((toDo) => toDo.active).length;
 
-  const handleCheckboxClick = (id) => {
+  const handleCheckboxClick = (idToComplete) => {
     setToDos((prevTodos) => {
       return prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, active: !todo.active } : todo
+        todo.id === idToComplete ? { ...todo, active: !todo.active } : todo
       );
     });
 
@@ -41,6 +42,10 @@ const App: React.FC = () => {
     //     todo.id === id ? { ...todo, active: !todo.active } : todo
     //   )
     // );
+  };
+
+  const handleRemoveButton = (idToRemove) => {
+    setToDos((prevTodos) => prevTodos.filter((todo) => todo.id !== idToRemove));
   };
 
   return (
@@ -61,16 +66,27 @@ const App: React.FC = () => {
         {toDos.length > 0 ? (
           toDos.map(({ id, value, active }) => (
             <div className='todo-item' key={id}>
-              <input
-                type='checkbox'
-                onClick={() => {
-                  handleCheckboxClick(id);
-                }}
-              />
+              <div className='checkbox-text-container'>
+                <input
+                  type='checkbox'
+                  onClick={() => {
+                    handleCheckboxClick(id);
+                  }}
+                />
 
-              <span className={`todo-text${!active ? ' completed' : ''}`}>
-                {value}
-              </span>
+                <span className={`todo-text${!active ? ' completed' : ''}`}>
+                  {value}
+                </span>
+              </div>
+
+              <button
+                className='remove-button'
+                onClick={() => {
+                  handleRemoveButton(id);
+                }}
+              >
+                <img src={iconCross} />
+              </button>
             </div>
           ))
         ) : (
