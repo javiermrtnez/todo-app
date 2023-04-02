@@ -34,6 +34,7 @@
 :root[data-theme="dark-theme"] {
   --app-background-color: hsl(235, 21%, 11%);
   --font-color: #afb1ca;
+  --font-color-filter: invert(88%) sepia(74%) saturate(3433%) hue-rotate(179deg) brightness(87%) contrast(80%);
   --input-placeholder-color: #74768c;
   --card-background-color: hsl(235, 24%, 19%);
   --separator-color: #34364c;
@@ -44,6 +45,7 @@
 :root[data-theme="light-theme"] {
   --app-background-color: hsl(0, 0%, 98%);
   --font-color: #48494e;
+  --font-color-filter: invert(28%) sepia(6%) saturate(436%) hue-rotate(193deg) brightness(94%) contrast(93%);
   --input-placeholder-color: #afaeb4;
   --card-background-color: #FFFFFF;
   --separator-color: #e7e7eb;

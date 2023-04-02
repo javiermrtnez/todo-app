@@ -3,6 +3,7 @@ import './App.css';
 import iconMoon from './assets/icons/icon-moon.svg';
 import iconSun from './assets/icons/icon-sun.svg';
 import iconCross from './assets/icons/icon-cross.svg';
+import iconSend from './assets/icons/icon-send.svg';
 import { ThemeContext, THEMES } from './context/ThemeContext';
 
 const App: React.FC = () => {
@@ -60,6 +61,10 @@ const App: React.FC = () => {
 
       <form className='new-todo-container' onSubmit={handleOnSubmit}>
         <input placeholder='Create a new todo...' name='newTodo' />
+
+        <button className='send-button' type='submit'>
+          <img src={iconSend} alt='icon-send' />
+        </button>
       </form>
 
       <div className='todos-container'>
