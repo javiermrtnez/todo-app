@@ -1,11 +1,7 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
+import { THEMES } from '../utils/constants/themes';
 
-export const THEMES = {
-  light: 'light-theme',
-  dark: 'dark-theme',
-};
-
-export const ThemeContext = createContext({
+const ThemeContext = createContext({
   theme: THEMES.dark,
   toggleTheme: () => {},
 });
@@ -31,4 +27,8 @@ export const ThemeContextProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
+};
+
+export const useTheme = () => {
+  return useContext(ThemeContext);
 };

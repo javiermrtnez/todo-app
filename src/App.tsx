@@ -1,25 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import iconMoon from './assets/icons/icon-moon.svg';
 import iconSun from './assets/icons/icon-sun.svg';
 import iconCross from './assets/icons/icon-cross.svg';
 import iconSend from './assets/icons/icon-send.svg';
-import { ThemeContext, THEMES } from './context/ThemeContext';
-
-const FILTERS = {
-  ALL: 'ALL',
-  ACTIVE: 'ACTIVE',
-  COMPLETE: 'COMPLETE',
-};
-
-const EMPTY_TODO_FILTERS_TEXT = {
-  ALL: 'left',
-  ACTIVE: 'active',
-  COMPLETE: 'completed',
-};
+import { useTheme } from './context/ThemeContext';
+import { THEMES } from './utils/constants/themes';
+import { EMPTY_TODO_FILTERS_TEXT, FILTERS } from './utils/constants/todo';
 
 const App: React.FC = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useTheme();
   const [toDos, setToDos] = useState([]);
   const [filteredToDos, setFilteredToDos] = useState(toDos);
   const [filter, setFilter] = useState(FILTERS.ALL);
