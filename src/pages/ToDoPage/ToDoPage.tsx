@@ -1,8 +1,8 @@
 import type { FC } from 'react';
-import Header from '../components/Header/Header';
-import NewTodoForm from '../components/NewTodoForm/NewTodoForm';
-import ToDos from '../components/ToDos/ToDos';
-import useToDo from '../hooks/useToDo';
+import Header from '../../components/Header/Header';
+import NewTodoForm from '../../components/NewTodoForm/NewTodoForm';
+import ToDos from '../../components/ToDos/ToDos';
+import useToDo from '../../hooks/useToDo';
 import SCToDoPage from './ToDoPage.style';
 
 const ToDoPage: FC = () => {

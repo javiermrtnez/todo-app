@@ -1,19 +1,28 @@
 :root {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 18px;
+  /* font-family: 'Josefin Sans', sans-serif; */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
   font-weight: var(--font-weight-regular);
 
   /* COMMON COLORS */
   --check-background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   --white: #FFFFFF;
+  --red: #BC1224;
 
   /* FONT WEIGHTS */
   --font-weight-regular: 400;
   --font-weight-bold: 700;
+
+  --navbar-height: 64px;
+
+  --page-padding: 20px;
+  --page-width: 700px;
+  --page-width-with-padding: calc(var(--page-width) + calc(2 * var(--page-padding)));
 }
 
 :root[data-theme="dark-theme"] {
   --app-background-color: hsl(235, 21%, 11%);
+  --navbar-background-color: hsl(235deg 21% 11% / 60%);
   --font-color: #afb1ca;
   --font-color-filter: invert(88%) sepia(74%) saturate(3433%) hue-rotate(179deg) brightness(87%) contrast(80%);
   --input-placeholder-color: #74768c;
@@ -26,6 +35,7 @@
 
 :root[data-theme="light-theme"] {
   --app-background-color: hsl(0, 0%, 98%);
+  --navbar-background-color: hsl(0 0% 98% / 60%);
   --font-color: #48494e;
   --font-color-filter: invert(28%) sepia(6%) saturate(436%) hue-rotate(193deg) brightness(94%) contrast(93%);
   --input-placeholder-color: #afaeb4;
@@ -39,6 +49,9 @@
 body {
   min-height: 100vh;
   width: 100%;
+  /* margin: 0;
+  display: flex;
+  justify-content: center; */
 
   color: var(--font-color);
   background-color: var(--app-background-color);
@@ -56,14 +69,20 @@ body {
   }
 }
 
-#root {
-  display: flex;
-  justify-content: center;
+/* #root {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 20px;
+} */
+
+h1 {
+  line-height: 1;
 }
 
 button {
   cursor: pointer;
   height: 100%;
+  line-height: 1;
 }
 
 button img {
