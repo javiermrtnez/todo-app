@@ -63,18 +63,16 @@ const SCNavbar = styled.div`
 
       :hover {
         background-color: rgba(208, 215, 222, 0.32);
-
-        :not(.active) {
-          color: var(--font-color);
-        }
       }
     }
 
     > button {
       background-color: var(--red);
+      color: white;
 
       :hover {
         background-color: #d05865;
+        color: white;
       }
     }
   }

@@ -7,27 +7,34 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  UserCredential,
 } from 'firebase/auth';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
 
-  const logIn = (email, password) => {
+  const logIn = async (
+    email: string,
+    password: string
+  ): Promise<UserCredential> => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logInWithGoogle = () => {
+  const logInWithGoogle = async (): Promise<UserCredential> => {
     const googleProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleProvider);
   };
 
-  const signUp = (email, password) => {
+  const signUp = async (
+    email: string,
+    password: string
+  ): Promise<UserCredential> => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const logOut = () => {
+  const logOut = async (): Promise<void> => {
     return signOut(auth);
   };
 
