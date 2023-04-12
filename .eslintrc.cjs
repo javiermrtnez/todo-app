@@ -20,6 +20,7 @@ module.exports = {
     'react'
   ],
   rules: {
-    "@typescript-eslint/return-await": "off"
+    "@typescript-eslint/return-await": "off",
+    "@typescript-eslint/consistent-type-imports": "off"
   }
 }
