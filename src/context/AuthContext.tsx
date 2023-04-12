@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../firebase/config';
+import { auth, db } from '../firebase/config';
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -8,7 +8,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   UserCredential,
+  GithubAuthProvider,
+  getAdditionalUserInfo,
 } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 
 const AuthContext = createContext();
 
@@ -22,9 +25,26 @@ export const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logInWithGoogle = async (): Promise<UserCredential> => {
+  const logInGoogle = async () => {
     const googleProvider = new GoogleAuthProvider();
-    return signInWithPopup(auth, googleProvider);
+    const userCredential = await signInWithPopup(auth, googleProvider);
+
+    const { isNewUser } = getAdditionalUserInfo(userCredential);
+
+    if (isNewUser) {
+      const { user } = userCredential;
+
+      await setDoc(doc(db, 'users', user.uid), {
+        uid: user.uid,
+        name: user.displayName,
+        email: user.email,
+      });
+    }
+  };
+
+  const logInGitHub = async (): Promise<UserCredential> => {
+    const githubProvider = new GithubAuthProvider();
+    return signInWithPopup(auth, githubProvider);
   };
 
   const signUp = async (
@@ -51,13 +71,11 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, logIn, logInWithGoogle, signUp, logOut }}
+      value={{ user, logIn, logInGoogle, logInGitHub, signUp, logOut }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);
