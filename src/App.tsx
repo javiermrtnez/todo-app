@@ -5,11 +5,13 @@ import ToDoPage from './pages/ToDoPage/ToDoPage';
 import BaseLayout from './layouts/BaseLayout/BaseLayout';
 import LogInPage from './pages/LogInPage/LogInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
+import Toaster from './components/Toaster/Toaster';
 
 const App: React.FC = () => {
   return (
     <ThemeContextProvider>
       <AuthProvider>
+        <Toaster />
         <Routes>
           <Route element={<BaseLayout />}>
             <Route path='/' element={<ToDoPage />} />
