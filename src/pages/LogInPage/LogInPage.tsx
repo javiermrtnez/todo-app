@@ -10,7 +10,10 @@ const LogInPage = () => {
   const handleLogInWithEmailAndPassword = (e) => {
     e.preventDefault();
 
-    logInWithEmailAndPassword('javiermartinezbueno@gmail.com', 'RealJaen1998');
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    logInWithEmailAndPassword(email, password);
   };
 
   return (
