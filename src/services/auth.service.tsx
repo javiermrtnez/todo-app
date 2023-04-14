@@ -1,53 +1,26 @@
 import {
-  AdditionalUserInfo,
   GithubAuthProvider,
   GoogleAuthProvider,
   UserCredential,
   createUserWithEmailAndPassword,
-  getAdditionalUserInfo,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import { auth, db } from '../firebase/config';
-import { doc, setDoc } from 'firebase/firestore';
+import { auth } from '../firebase/config';
 
 export const logIn = async (email: string, password: string): Promise<UserCredential> => {
   return signInWithEmailAndPassword(auth, email, password);
 };
 
-export const logInGoogle = async (): Promise<void> => {
+export const logInGoogle = async (): Promise<UserCredential> => {
   const googleProvider = new GoogleAuthProvider();
-  const userCredential = await signInWithPopup(auth, googleProvider);
-
-  const { isNewUser } = getAdditionalUserInfo(userCredential) as AdditionalUserInfo;
-
-  if (isNewUser) {
-    const { user } = userCredential;
-
-    await setDoc(doc(db, 'users', user.uid), {
-      uid: user.uid,
-      name: user.displayName,
-      email: user.email,
-    });
-  }
+  return signInWithPopup(auth, googleProvider);
 };
 
-export const logInGitHub = async (): Promise<void> => {
+export const logInGitHub = async (): Promise<UserCredential> => {
   const githubProvider = new GithubAuthProvider();
-  const userCredential = await signInWithPopup(auth, githubProvider);
-
-  const { isNewUser } = getAdditionalUserInfo(userCredential) as AdditionalUserInfo;
-
-  if (isNewUser) {
-    const { user } = userCredential;
-
-    await setDoc(doc(db, 'users', user.uid), {
-      uid: user.uid,
-      name: user.displayName,
-      email: user.email,
-    });
-  }
+  return signInWithPopup(auth, githubProvider);
 };
 
 export const signUp = async (email: string, password: string): Promise<UserCredential> => {

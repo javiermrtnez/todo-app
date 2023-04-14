@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import Header from '../../components/Header/Header';
 import NewTodoForm from '../../components/NewTodoForm/NewTodoForm';
 import ToDoList from '../../components/ToDoList/ToDoList';
 import useToDo from '../../hooks/useToDo';
@@ -10,7 +9,7 @@ const ToDoPage: FC = () => {
 
   return (
     <SCToDoPage>
-      <Header />
+      <h1>My ToDos</h1>
 
       <NewTodoForm toDos={toDos} setToDos={setToDos} />
 

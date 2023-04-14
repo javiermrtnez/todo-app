@@ -6,6 +6,7 @@ import BaseLayout from './layouts/BaseLayout/BaseLayout';
 import LogInPage from './pages/LogInPage/LogInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import Toaster from './components/Toaster/Toaster';
+// import AuthGuard from './guards/AuthGuard';
 
 const App: React.FC = () => {
   return (
@@ -14,7 +15,14 @@ const App: React.FC = () => {
         <Toaster />
         <Routes>
           <Route element={<BaseLayout />}>
-            <Route path='/' element={<ToDoPage />} />
+            <Route
+              path='/'
+              element={
+                // <AuthGuard>
+                <ToDoPage />
+                // </AuthGuard>
+              }
+            />
             <Route path='login' element={<LogInPage />} />
             <Route path='signup' element={<SignUpPage />} />
             <Route path='*' element={<div>¡¡404 NOT FOUND!!</div>} />

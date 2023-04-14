@@ -20,6 +20,11 @@ const SCGoogleButton = styled.button`
   :hover {
     background-color: #1668e2;
   }
+
+  > svg {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 export default SCGoogleButton;

@@ -6,9 +6,9 @@ const SCToDoList = styled.div`
   flex-direction: column;
 
   width: 100%;
+  border: 1px solid var(--accents-2);
   box-shadow: var(--shadow-small);
   border-radius: 5px;
-  border: 1px solid var(--accents-2);
 
   background-color: var(--geist-background);
 
@@ -64,6 +64,7 @@ const SCToDoList = styled.div`
       .todo-text {
         overflow: hidden;
         word-wrap: break-word;
+        color: var(--geist-foreground);
 
         /* 42.5px = ancho del checkbox (25px) + gap entre checkbox y texto (17.5px) */
         max-width: calc(100% - 42.5px);

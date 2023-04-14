@@ -1,7 +1,7 @@
 import SCNewTodoForm from './NewTodoForm.style';
-import iconSend from '../../assets/icons/icon-send.svg';
 import type { INewTodoFormProps, IToDo } from '../../utils/interfaces/todo.interface';
 import type { FC } from 'react';
+import { SendIcon } from '../Icons/Icons';
 
 const NewTodoForm: FC<INewTodoFormProps> = ({ toDos, setToDos }: INewTodoFormProps) => {
   const handleOnSubmit = (e): void => {
@@ -27,7 +27,7 @@ const NewTodoForm: FC<INewTodoFormProps> = ({ toDos, setToDos }: INewTodoFormPro
       <input placeholder='Create a new todo...' name='newTodo' autoFocus />
 
       <button type='submit'>
-        <img src={iconSend} alt='icon-send' />
+        <SendIcon />
       </button>
     </SCNewTodoForm>
   );

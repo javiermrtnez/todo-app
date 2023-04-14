@@ -21,7 +21,7 @@ const LogInPage = () => {
       <h1>Log into ToDo App</h1>
 
       <form onSubmit={handleLogInWithEmailAndPassword}>
-        <Input label='Email' type='email' name='email' required autoFocus />
+        <Input label='Email' type='email' name='email' required />
 
         <Input label='Password' type='password' name='password' required />
 

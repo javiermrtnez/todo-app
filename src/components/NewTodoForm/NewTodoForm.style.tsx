@@ -11,12 +11,13 @@ const SCNewTodoForm = styled.form`
 
   background-color: var(--geist-background);
 
-  box-shadow: var(--shadow-small);
   border: 1px solid var(--accents-2);
+  box-shadow: var(--shadow-small);
   border-radius: 5px;
 
   > input {
     width: 100%;
+    color: var(--geist-foreground);
   }
 
   > input::placeholder {
@@ -25,7 +26,10 @@ const SCNewTodoForm = styled.form`
 
   > button {
     padding: 5px;
-    filter: var(--font-color-filter);
+
+    > svg {
+      color: var(--geist-foreground);
+    }
   }
 `;
 

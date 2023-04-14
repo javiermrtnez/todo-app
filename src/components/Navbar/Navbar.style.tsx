@@ -43,36 +43,43 @@ const SCNavbar = styled.div`
       }
     }
 
-    .navbar-buttons {
+    .navbar-buttons-toggle-theme-container {
       display: flex;
-      gap: 10px;
-      list-style: none;
+      align-items: center;
+      gap: 25px;
 
-      > li {
+      .navbar-buttons {
         display: flex;
+        gap: 10px;
+        list-style: none;
+
+        > li {
+          display: flex;
+        }
       }
-    }
 
-    .navigation-button,
-    button {
-      padding: 7px 9px;
-      border-radius: 6px;
-      transition: color 0.2s ease, background-color 0.2s ease;
-      font-weight: 500;
-      line-height: 1;
+      .navigation-button,
+      .sign-out-button {
+        padding: 7px 9px;
+        border-radius: 6px;
+        transition: color 0.2s ease, background-color 0.2s ease;
+        font-weight: 500;
+        line-height: 1;
 
-      :hover {
-        background-color: rgba(208, 215, 222, 0.32);
+        :hover {
+          background-color: rgba(208, 215, 222, 0.32);
+          color: var(--geist-foreground);
+        }
       }
-    }
 
-    > button {
-      background-color: var(--red);
-      color: white;
-
-      :hover {
-        background-color: #d05865;
+      .sign-out-button {
+        background-color: var(--red);
         color: white;
+
+        :hover {
+          background-color: #d05865;
+          color: white;
+        }
       }
     }
   }

@@ -1,20 +1,34 @@
 import { useNavigate } from 'react-router-dom';
 import * as authService from '../services/auth.service';
 import { notificationError, notificationSuccess } from '../utils/functions/notifications';
+import { AdditionalUserInfo, UserCredential, getAdditionalUserInfo } from 'firebase/auth';
+import useUser from './useUser';
 
 const useAuth = () => {
   const navigate = useNavigate();
+  const { createUser } = useUser();
+
+  const saveNewUser = async (userCredential: UserCredential): Promise<void> => {
+    const { isNewUser } = getAdditionalUserInfo(userCredential) as AdditionalUserInfo;
+
+    if (isNewUser) {
+      const { user } = userCredential;
+      await createUser(user.uid, user.email);
+    }
+  };
 
   const signUpWithEmailAndPassword = (email: string, password: string): void => {
     authService
       .signUp(email, password)
-      .then(() => {
-        notificationSuccess('You have been logged in successfully!');
+      .then(async (userCredential) => {
+        await createUser(userCredential.user.uid, userCredential.user.email);
+
+        notificationSuccess('You have successfully signed up!');
         navigate('/');
       })
       .catch((e) => {
         notificationError(
-          'Oops! It looks like there was an error with your login. Please try again.'
+          'Oops! It looks like there was an error with your sign up. Please try again.'
         );
         console.log(e.message);
       });
@@ -38,7 +52,9 @@ const useAuth = () => {
   const handleLogInGoogle = (): void => {
     authService
       .logInGoogle()
-      .then(() => {
+      .then(async (userCredential) => {
+        await saveNewUser(userCredential);
+
         notificationSuccess('You have been logged in successfully!');
         navigate('/');
       })
@@ -53,7 +69,9 @@ const useAuth = () => {
   const handleLogInGitHub = (): void => {
     authService
       .logInGitHub()
-      .then(() => {
+      .then(async (userCredential) => {
+        await saveNewUser(userCredential);
+
         notificationSuccess('You have been logged in successfully!');
         navigate('/');
       })
