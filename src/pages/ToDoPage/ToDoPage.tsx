@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import Header from '../../components/Header/Header';
 import NewTodoForm from '../../components/NewTodoForm/NewTodoForm';
-import ToDos from '../../components/ToDos/ToDos';
+import ToDoList from '../../components/ToDoList/ToDoList';
 import useToDo from '../../hooks/useToDo';
 import SCToDoPage from './ToDoPage.style';
 
@@ -14,7 +14,7 @@ const ToDoPage: FC = () => {
 
       <NewTodoForm toDos={toDos} setToDos={setToDos} />
 
-      <ToDos
+      <ToDoList
         toDos={toDos}
         setToDos={setToDos}
         filteredToDos={filteredToDos}

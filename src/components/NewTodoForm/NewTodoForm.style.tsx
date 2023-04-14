@@ -1,23 +1,26 @@
 import styled from 'styled-components';
 
 const SCNewTodoForm = styled.form`
+  width: 100%;
+  height: 70px;
+
+  padding: 15px 20px;
+
   display: flex;
   gap: 10px;
 
-  width: 100%;
-  height: 70px;
-  background-color: var(--card-background-color);
-  border-radius: 5px;
-  padding: 15px 20px;
+  background-color: var(--geist-background);
 
-  box-shadow: 0 0 10px #1617221c;
+  box-shadow: var(--shadow-small);
+  border: 1px solid var(--accents-2);
+  border-radius: 5px;
 
   > input {
     width: 100%;
   }
 
   > input::placeholder {
-    color: var(--input-placeholder-color);
+    color: var(--accents-4);
   }
 
   > button {

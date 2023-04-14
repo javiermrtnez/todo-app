@@ -1,27 +1,19 @@
 import styled from 'styled-components';
 
 const SCLogInPage = styled.div`
+  max-width: 460px;
+
   display: flex;
   gap: 30px;
   flex-direction: column;
   align-items: center;
 
-  max-width: 320px;
-  width: 100%;
-
-  margin: 0 auto;
-
-  > h1 {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--white);
-  }
-
-  .log-in-buttons {
+  > form {
     width: 100%;
+
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 
     > button {
       height: 50px;
@@ -30,28 +22,20 @@ const SCLogInPage = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
 
-      color: var(--white);
+      background-color: var(--geist-foreground);
+
+      color: var(--geist-background);
+      /* font-size: 14px; */
+      border: 1px solid var(--geist-foreground);
       border-radius: 5px;
       font-weight: 500;
 
-      transition: background-color 350ms ease 0s;
-    }
-
-    .google-button {
-      background-color: #0052cc;
+      transition: background-color 0.15s ease, color 0.15s ease;
 
       :hover {
-        background-color: #1668e2;
-      }
-    }
-
-    .github-button {
-      background-color: #24292e;
-
-      :hover {
-        background-color: #555;
+        background-color: transparent;
+        color: var(--geist-foreground);
       }
     }
   }

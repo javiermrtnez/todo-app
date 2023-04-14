@@ -1,10 +1,11 @@
-import { useAuth } from '../../context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
+import { logOut } from '../../services/auth.service';
 import SCNavbar from './Navbar.style';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { user } = useAuthContext();
   const navigate = useNavigate();
 
   const handleSignOut = (e) => {

@@ -1,10 +1,21 @@
 import styled from 'styled-components';
 
 const SCBaseLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   .base-content {
+    width: 100%;
     max-width: var(--page-width-with-padding);
     padding: calc(2 * var(--page-padding)) var(--page-padding);
-    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+
+    > div {
+      width: 100%;
+    }
   }
 `;
 

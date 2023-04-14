@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 import iconCheck from '../../assets/icons/icon-check.svg';
 
-const SCToDos = styled.div`
+const SCToDoList = styled.div`
   display: flex;
   flex-direction: column;
 
   width: 100%;
-  box-shadow: 0 0 10px #1617221c;
+  box-shadow: var(--shadow-small);
+  border-radius: 5px;
+  border: 1px solid var(--accents-2);
+
+  background-color: var(--geist-background);
 
   .todo-item {
     display: flex;
@@ -14,8 +18,7 @@ const SCToDos = styled.div`
     justify-content: space-between;
     min-height: 70px;
     padding: 15px 20px;
-    background-color: var(--card-background-color);
-    border-bottom: 1px solid var(--separator-color);
+    border-bottom: 1px solid var(--accents-2);
 
     :first-of-type {
       border-radius: 5px 5px 0 0;
@@ -67,7 +70,7 @@ const SCToDos = styled.div`
       }
 
       .completed {
-        color: var(--input-placeholder-color);
+        color: var(--accents-4);
         text-decoration: line-through;
       }
     }
@@ -80,7 +83,7 @@ const SCToDos = styled.div`
     .todo-empty-text {
       width: 100%;
       text-align: center;
-      color: var(--input-placeholder-color);
+      color: var(--accents-4);
     }
   }
 
@@ -88,11 +91,10 @@ const SCToDos = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--input-placeholder-color);
+    color: var(--accents-4);
     font-size: 14px;
     height: 50px;
     padding: 15px 20px;
-    background-color: var(--card-background-color);
     border-radius: 0 0 5px 5px;
 
     .filter-buttons-container {
@@ -127,4 +129,4 @@ const SCToDos = styled.div`
   }
 `;
 
-export default SCToDos;
+export default SCToDoList;

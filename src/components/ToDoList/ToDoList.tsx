@@ -1,16 +1,11 @@
-import {
-  EMPTY_TODO_FILTERS_TEXT,
-  FILTERS,
-} from '../../utils/constants/filters';
+import { EMPTY_TODO_FILTERS_TEXT, FILTERS } from '../../utils/constants/filters';
 import iconCross from '../../assets/icons/icon-cross.svg';
-import SCToDos from './ToDos.style';
+import SCToDoList from './ToDoList.style';
 
-const ToDos = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
+const ToDoList = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
   const handleCheckboxClick = (idToComplete) => {
     setToDos(
-      toDos.map((toDo) =>
-        toDo.id === idToComplete ? { ...toDo, active: !toDo.active } : toDo
-      )
+      toDos.map((toDo) => (toDo.id === idToComplete ? { ...toDo, active: !toDo.active } : toDo))
     );
   };
 
@@ -25,7 +20,7 @@ const ToDos = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
   const itemsLeft = toDos.filter((toDo) => toDo.active).length;
 
   return (
-    <SCToDos>
+    <SCToDoList>
       {filteredToDos.length > 0 ? (
         filteredToDos.map(({ id, value, active }) => (
           <div className='todo-item' key={id}>
@@ -38,9 +33,7 @@ const ToDos = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
                 }}
               />
 
-              <span className={`todo-text${!active ? ' completed' : ''}`}>
-                {value}
-              </span>
+              <span className={`todo-text${!active ? ' completed' : ''}`}>{value}</span>
             </div>
 
             <button
@@ -55,9 +48,7 @@ const ToDos = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
         ))
       ) : (
         <div className='todo-item'>
-          <span className='todo-empty-text'>
-            No to-do items {EMPTY_TODO_FILTERS_TEXT[filter]}!
-          </span>
+          <span className='todo-empty-text'>No to-do items {EMPTY_TODO_FILTERS_TEXT[filter]}!</span>
         </div>
       )}
 
@@ -66,9 +57,7 @@ const ToDos = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
 
         <div className='filter-buttons-container'>
           <button
-            className={`filter-button${
-              filter === FILTERS.ALL ? ' active' : ''
-            }`}
+            className={`filter-button${filter === FILTERS.ALL ? ' active' : ''}`}
             id={FILTERS.ALL}
             onClick={handleFilterButton}
           >
@@ -76,9 +65,7 @@ const ToDos = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
           </button>
 
           <button
-            className={`filter-button${
-              filter === FILTERS.ACTIVE ? ' active' : ''
-            }`}
+            className={`filter-button${filter === FILTERS.ACTIVE ? ' active' : ''}`}
             id={FILTERS.ACTIVE}
             onClick={handleFilterButton}
           >
@@ -86,9 +73,7 @@ const ToDos = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
           </button>
 
           <button
-            className={`filter-button${
-              filter === FILTERS.COMPLETE ? ' active' : ''
-            }`}
+            className={`filter-button${filter === FILTERS.COMPLETE ? ' active' : ''}`}
             id={FILTERS.COMPLETE}
             onClick={handleFilterButton}
           >
@@ -96,8 +81,8 @@ const ToDos = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
           </button>
         </div>
       </div>
-    </SCToDos>
+    </SCToDoList>
   );
 };
 
-export default ToDos;
+export default ToDoList;

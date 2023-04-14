@@ -9,6 +9,7 @@ const SCNavbar = styled.div`
   height: var(--navbar-height);
   background-color: var(--navbar-background-color);
   backdrop-filter: saturate(180%) blur(5px);
+  box-shadow: var(--navbar-border-bottom);
 
   a,
   button {
@@ -39,7 +40,6 @@ const SCNavbar = styled.div`
 
       .brand {
         font-size: 14px;
-        font-weight: var(--font-weight-bold);
       }
     }
 

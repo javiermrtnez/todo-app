@@ -7,9 +7,6 @@ const SCHeader = styled.div`
   margin-bottom: 10px;
 
   h1 {
-    color: var(--white);
-    font-weight: var(--font-weight-bold);
-    font-size: 2em;
     letter-spacing: 0.5em;
   }
 `;
