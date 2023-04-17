@@ -46,31 +46,7 @@ const SCNavbar = styled.div`
     .navbar-buttons-toggle-theme-container {
       display: flex;
       align-items: center;
-      gap: 25px;
-
-      .navbar-buttons {
-        display: flex;
-        gap: 10px;
-        list-style: none;
-
-        > li {
-          display: flex;
-        }
-      }
-
-      .navigation-button,
-      .sign-out-button {
-        padding: 7px 9px;
-        border-radius: 6px;
-        transition: color 0.2s ease, background-color 0.2s ease;
-        font-weight: 500;
-        line-height: 1;
-
-        :hover {
-          background-color: rgba(208, 215, 222, 0.32);
-          color: var(--geist-foreground);
-        }
-      }
+      gap: 20px;
 
       .sign-out-button {
         background-color: var(--red);
@@ -80,6 +56,30 @@ const SCNavbar = styled.div`
           background-color: #d05865;
           color: white;
         }
+      }
+    }
+
+    .navbar-buttons {
+      display: flex;
+      gap: 10px;
+      list-style: none;
+
+      > li {
+        display: flex;
+      }
+    }
+
+    .navigation-button,
+    .sign-out-button {
+      padding: 7px 9px;
+      border-radius: 6px;
+      transition: color 0.2s ease, background-color 0.2s ease;
+      font-weight: 500;
+      line-height: 1;
+
+      :hover {
+        background-color: rgba(208, 215, 222, 0.32);
+        color: var(--geist-foreground);
       }
     }
   }

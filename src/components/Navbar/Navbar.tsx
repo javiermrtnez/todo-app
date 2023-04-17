@@ -1,13 +1,10 @@
 import { useAuthContext } from '../../context/AuthContext';
-import { useTheme } from '../../context/ThemeContext';
 import { logOut } from '../../services/auth.service';
 import SCNavbar from './Navbar.style';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ThemeToggleButton from '../ThemeToggleButton/ThemeToggleButton';
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
   const { user } = useAuthContext();
   const navigate = useNavigate();
 
@@ -26,18 +23,22 @@ const Navbar = () => {
   return (
     <SCNavbar>
       <header className='app-header'>
-        <Link className='logo-brand-container' to='/'>
-          <div className='logo' />
-          <h1 className='brand'>ToDoApp</h1>
-        </Link>
+        <div style={{ display: 'flex', gap: '20px' }}>
+          <Link className='logo-brand-container' to='/'>
+            <div className='logo' />
+            <h1 className='brand'>ToDoApp</h1>
+          </Link>
 
-        {/* <ul className='navbar-buttons'>
-          <li>
-            <Link className='navigation-button' to='/my-todo'>
-              My To Do
-            </Link>
-          </li>
-        </ul> */}
+          {Boolean(user) && (
+            <ul className='navbar-buttons'>
+              <li>
+                <Link className='navigation-button' to='/'>
+                  My ToDos
+                </Link>
+              </li>
+            </ul>
+          )}
+        </div>
 
         <div className='navbar-buttons-toggle-theme-container'>
           {!user ? (

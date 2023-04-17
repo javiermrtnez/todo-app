@@ -102,10 +102,6 @@ button {
   line-height: 1;
 }
 
-button img {
-  vertical-align: middle;
-}
-
 /* Disable highlighted selection on buttons */
 button {
   -webkit-tap-highlight-color: transparent;
