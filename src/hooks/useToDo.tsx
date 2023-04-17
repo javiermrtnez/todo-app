@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react';
 import { FILTERS } from '../utils/constants/filters';
+import { useAppDispatch, useAppSelector } from '../hooks/store';
+import {
+  ToDoId,
+  createToDo,
+  deleteToDoById,
+  toggleToDoActiveStateById,
+} from '../store/toDos/toDos.slice';
 
 const useToDo = () => {
-  const [toDos, setToDos] = useState([]);
+  const dispatch = useAppDispatch();
+  const toDos = useAppSelector((state) => state.toDos);
   const [filteredToDos, setFilteredToDos] = useState(toDos);
   const [filter, setFilter] = useState(FILTERS.ALL);
 
@@ -16,12 +24,40 @@ const useToDo = () => {
     }
   }, [toDos, filter]);
 
+  const handleCreateToDo = (e): void => {
+    e.preventDefault();
+
+    const newTodoValue = e.target.newTodo.value;
+
+    if (newTodoValue !== '') {
+      dispatch(createToDo(newTodoValue.trim()));
+
+      e.target.reset();
+    }
+  };
+
+  const handleDeleteToDo = (id: ToDoId): void => {
+    dispatch(deleteToDoById(id));
+  };
+
+  const handleToggleToDoActiveState = (id: ToDoId): void => {
+    dispatch(toggleToDoActiveStateById(id));
+  };
+
+  const handleFilterButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setFilter((e.target as HTMLButtonElement).id);
+  };
+
+  const toDosLeft = toDos.filter((toDo) => toDo.active).length;
+
   return {
-    toDos,
-    setToDos,
     filteredToDos,
     filter,
-    setFilter,
+    handleCreateToDo,
+    handleDeleteToDo,
+    handleToggleToDoActiveState,
+    handleFilterButton,
+    toDosLeft,
   };
 };
 

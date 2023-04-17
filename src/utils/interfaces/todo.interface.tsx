@@ -1,3 +1,4 @@
+// DEPRECATED - UNUSED
 export interface IToDo {
   id: number;
   value: string;

@@ -1,23 +1,17 @@
 import { EMPTY_TODO_FILTERS_TEXT, FILTERS } from '../../utils/constants/filters';
 import iconCross from '../../assets/icons/icon-cross.svg';
 import SCToDoList from './ToDoList.style';
+import useToDo from '../../hooks/useToDo';
 
-const ToDoList = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
-  const handleCheckboxClick = (idToComplete) => {
-    setToDos(
-      toDos.map((toDo) => (toDo.id === idToComplete ? { ...toDo, active: !toDo.active } : toDo))
-    );
-  };
-
-  const handleRemoveButton = (idToRemove) => {
-    setToDos(toDos.filter((toDo) => toDo.id !== idToRemove));
-  };
-
-  const handleFilterButton = (e) => {
-    setFilter(e.target.id);
-  };
-
-  const itemsLeft = toDos.filter((toDo) => toDo.active).length;
+const ToDoList = () => {
+  const {
+    toDosLeft,
+    filteredToDos,
+    filter,
+    handleDeleteToDo,
+    handleToggleToDoActiveState,
+    handleFilterButton,
+  } = useToDo();
 
   return (
     <SCToDoList>
@@ -29,7 +23,7 @@ const ToDoList = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
                 checked={!active}
                 type='checkbox'
                 onChange={() => {
-                  handleCheckboxClick(id);
+                  handleToggleToDoActiveState(id);
                 }}
               />
 
@@ -39,7 +33,7 @@ const ToDoList = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
             <button
               className='remove-button'
               onClick={() => {
-                handleRemoveButton(id);
+                handleDeleteToDo(id);
               }}
             >
               <img src={iconCross} />
@@ -53,7 +47,7 @@ const ToDoList = ({ toDos, setToDos, filteredToDos, filter, setFilter }) => {
       )}
 
       <div className='todo-resume-item'>
-        <span>{itemsLeft} items left</span>
+        <span>{toDosLeft} items left</span>
 
         <div className='filter-buttons-container'>
           <button

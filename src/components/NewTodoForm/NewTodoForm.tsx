@@ -1,29 +1,12 @@
 import SCNewTodoForm from './NewTodoForm.style';
-import type { INewTodoFormProps, IToDo } from '../../utils/interfaces/todo.interface';
-import type { FC } from 'react';
 import { SendIcon } from '../Icons/Icons';
+import useToDo from '../../hooks/useToDo';
 
-const NewTodoForm: FC<INewTodoFormProps> = ({ toDos, setToDos }: INewTodoFormProps) => {
-  const handleOnSubmit = (e): void => {
-    e.preventDefault();
-
-    const newTodoValue = e.target.newTodo.value;
-
-    if (newTodoValue !== '') {
-      const newTodo: IToDo = {
-        id: toDos.length,
-        value: newTodoValue.trim(),
-        active: true,
-      };
-
-      setToDos([newTodo, ...toDos]);
-
-      e.target.reset();
-    }
-  };
+const NewTodoForm = () => {
+  const { handleCreateToDo } = useToDo();
 
   return (
-    <SCNewTodoForm onSubmit={handleOnSubmit}>
+    <SCNewTodoForm onSubmit={handleCreateToDo}>
       <input placeholder='Create a new todo...' name='newTodo' autoFocus />
 
       <button type='submit'>
