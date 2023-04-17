@@ -27,7 +27,7 @@ const useToDo = () => {
   const handleCreateToDo = (e): void => {
     e.preventDefault();
 
-    const newTodoValue = e.target.newTodo.value;
+    const newTodoValue = e.target.newToDo.value;
 
     if (newTodoValue !== '') {
       dispatch(createToDo(newTodoValue.trim()));
