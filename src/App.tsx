@@ -7,6 +7,7 @@ import LogInPage from './pages/LogInPage/LogInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import Toaster from './components/Toaster/Toaster';
 import AuthGuard from './guards/AuthGuard';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 const App: React.FC = () => {
   return (
@@ -25,7 +26,7 @@ const App: React.FC = () => {
             />
             <Route path='login' element={<LogInPage />} />
             <Route path='signup' element={<SignUpPage />} />
-            <Route path='*' element={<div>¡¡404 NOT FOUND!!</div>} />
+            <Route path='*' element={<NotFoundPage />} />
           </Route>
         </Routes>
       </AuthProvider>
