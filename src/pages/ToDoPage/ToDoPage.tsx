@@ -7,7 +7,9 @@ const ToDoPage: FC = () => {
   return (
     <SCToDoPage>
       <h1>My ToDos</h1>
+
       <NewTodoForm />
+
       <ToDoList />
     </SCToDoPage>
   );
