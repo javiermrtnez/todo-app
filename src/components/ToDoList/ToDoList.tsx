@@ -4,14 +4,12 @@ import SCToDoList from './ToDoList.style';
 import useToDo from '../../hooks/useToDo';
 
 const ToDoList = () => {
-  const {
-    toDosLeft,
-    filteredToDos,
-    filter,
-    handleDeleteToDo,
-    handleToggleToDoActiveState,
-    handleFilterButton,
-  } = useToDo();
+  const { toDosLeft, filteredToDos, filter, deleteToDo, toggleToDoActiveState, setFilter } =
+    useToDo();
+
+  const handleFilterButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setFilter((e.target as HTMLButtonElement).id);
+  };
 
   return (
     <SCToDoList>
@@ -23,7 +21,7 @@ const ToDoList = () => {
                 checked={!active}
                 type='checkbox'
                 onChange={() => {
-                  handleToggleToDoActiveState(id);
+                  toggleToDoActiveState(id);
                 }}
               />
 
@@ -33,7 +31,7 @@ const ToDoList = () => {
             <button
               className='remove-button'
               onClick={() => {
-                handleDeleteToDo(id);
+                deleteToDo(id);
               }}
             >
               <img src={iconCross} />

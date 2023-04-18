@@ -24,28 +24,16 @@ const useToDo = () => {
     }
   }, [toDos, filter]);
 
-  const handleCreateToDo = (e): void => {
-    e.preventDefault();
-
-    const newTodoValue = e.target.newToDo.value;
-
-    if (newTodoValue !== '') {
-      dispatch(createToDo(newTodoValue.trim()));
-
-      e.target.reset();
-    }
+  const createNewToDo = (toDoValue: string) => {
+    dispatch(createToDo(toDoValue));
   };
 
-  const handleDeleteToDo = (id: ToDoId): void => {
+  const deleteToDo = (id: ToDoId): void => {
     dispatch(deleteToDoById(id));
   };
 
-  const handleToggleToDoActiveState = (id: ToDoId): void => {
+  const toggleToDoActiveState = (id: ToDoId): void => {
     dispatch(toggleToDoActiveStatusById(id));
-  };
-
-  const handleFilterButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setFilter((e.target as HTMLButtonElement).id);
   };
 
   const toDosLeft = toDos.filter((toDo) => toDo.active).length;
@@ -53,10 +41,10 @@ const useToDo = () => {
   return {
     filteredToDos,
     filter,
-    handleCreateToDo,
-    handleDeleteToDo,
-    handleToggleToDoActiveState,
-    handleFilterButton,
+    createNewToDo,
+    deleteToDo,
+    toggleToDoActiveState,
+    setFilter,
     toDosLeft,
   };
 };
