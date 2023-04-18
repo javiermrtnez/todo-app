@@ -5,7 +5,7 @@ import {
   ToDoId,
   createToDo,
   deleteToDoById,
-  toggleToDoActiveStateById,
+  toggleToDoActiveStatusById,
 } from '../store/toDos/toDos.slice';
 
 const useToDo = () => {
@@ -41,7 +41,7 @@ const useToDo = () => {
   };
 
   const handleToggleToDoActiveState = (id: ToDoId): void => {
-    dispatch(toggleToDoActiveStateById(id));
+    dispatch(toggleToDoActiveStatusById(id));
   };
 
   const handleFilterButton = (e: React.MouseEvent<HTMLButtonElement>) => {
