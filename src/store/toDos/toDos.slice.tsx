@@ -11,33 +11,7 @@ export interface ToDo {
 }
 
 // Define the initial state using that type
-const initialState: ToDo[] = [
-  {
-    id: '0',
-    value: 'Complete online JavaScript course',
-    active: false,
-  },
-  {
-    id: '1',
-    value: 'Jog around the park',
-    active: true,
-  },
-  {
-    id: '2',
-    value: '10 minutes meditation',
-    active: true,
-  },
-  {
-    id: '3',
-    value: 'Read for 1 hour',
-    active: true,
-  },
-  {
-    id: '4',
-    value: 'Complete ToDo App',
-    active: true,
-  },
-];
+const initialState: ToDo[] = [];
 
 export const toDosSlice = createSlice({
   name: 'toDos',
@@ -47,12 +21,12 @@ export const toDosSlice = createSlice({
       const value = action.payload;
 
       const toDo = {
-        id: state.length.toString(),
+        id: crypto.randomUUID(),
         value,
         active: true,
       };
 
-      return [toDo, ...state];
+      state.unshift(toDo);
     },
     deleteToDoById: (state, action: PayloadAction<ToDoId>) => {
       const id = action.payload;

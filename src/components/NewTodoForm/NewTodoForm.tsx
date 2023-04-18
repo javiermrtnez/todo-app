@@ -5,7 +5,7 @@ import useToDo from '../../hooks/useToDo';
 const NewTodoForm = () => {
   const { createNewToDo } = useToDo();
 
-  const handleCreateToDo = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleCreateToDo = (event): void => {
     event.preventDefault();
 
     const form = event.target;
@@ -14,7 +14,7 @@ const NewTodoForm = () => {
 
     if (newToDo !== '') {
       createNewToDo(newToDo);
-      event.target.reset();
+      form.reset();
     }
   };
 
