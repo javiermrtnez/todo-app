@@ -1,10 +1,23 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
+import Loading from '../components/Loading/Loading';
 
-const AuthGuard = ({ children }) => {
+export const AuthenticatedRoute = () => {
   const { user } = useAuthContext();
 
-  return user ? children : <Navigate to='/login' />;
+  if (user === undefined) {
+    return <Loading />;
+  }
+
+  return user ? <Outlet /> : <Navigate to='/login' />;
 };
 
-export default AuthGuard;
+export const UnauthenticatedRoute = () => {
+  const { user } = useAuthContext();
+
+  if (user === undefined) {
+    return <Loading />;
+  }
+
+  return !user ? <Outlet /> : <Navigate to='/' />;
+};

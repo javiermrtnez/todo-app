@@ -6,8 +6,8 @@ import BaseLayout from './layouts/BaseLayout/BaseLayout';
 import LogInPage from './pages/LogInPage/LogInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import Toaster from './components/Toaster/Toaster';
-import AuthGuard from './guards/AuthGuard';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import { AuthenticatedRoute, UnauthenticatedRoute } from './guards/AuthGuard';
 
 const App: React.FC = () => {
   return (
@@ -16,16 +16,15 @@ const App: React.FC = () => {
         <Toaster />
         <Routes>
           <Route element={<BaseLayout />}>
-            <Route
-              path='/'
-              element={
-                <AuthGuard>
-                  <ToDoPage />
-                </AuthGuard>
-              }
-            />
-            <Route path='login' element={<LogInPage />} />
-            <Route path='signup' element={<SignUpPage />} />
+            <Route element={<AuthenticatedRoute />}>
+              <Route path='/' element={<ToDoPage />} />
+            </Route>
+
+            <Route element={<UnauthenticatedRoute />}>
+              <Route path='login' element={<LogInPage />} />
+              <Route path='signup' element={<SignUpPage />} />
+            </Route>
+
             <Route path='*' element={<NotFoundPage />} />
           </Route>
         </Routes>
