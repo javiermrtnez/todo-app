@@ -6,7 +6,10 @@ import {
   createToDo,
   deleteToDoById,
   toggleToDoActiveStatusById,
+  setToDos,
 } from '../store/toDos/toDos.slice';
+import * as toDosService from '../services/toDos.service';
+import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 
 const useToDo = () => {
   const dispatch = useAppDispatch();
@@ -25,15 +28,51 @@ const useToDo = () => {
   }, [toDos, filter]);
 
   const createNewToDo = (toDoValue: string) => {
-    dispatch(createToDo(toDoValue));
+    toDosService
+      .createToDo(toDoValue)
+      .then((toDoRef) => {
+        dispatch(createToDo({ id: toDoRef.id, value: toDoValue }));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const deleteToDo = (id: ToDoId): void => {
-    dispatch(deleteToDoById(id));
+    toDosService
+      .deleteToDo(id)
+      .then(() => {
+        dispatch(deleteToDoById(id));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
-  const toggleToDoActiveState = (id: ToDoId): void => {
-    dispatch(toggleToDoActiveStatusById(id));
+  const toggleToDoActiveStatus = (id: ToDoId): void => {
+    toDosService
+      .toggleToDoActiveStatus(id)
+      .then(() => {
+        dispatch(toggleToDoActiveStatusById(id));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  const retrieveUserToDos = () => {
+    toDosService
+      .getUserToDos()
+      .then((toDos: QuerySnapshot<DocumentData>) => {
+        dispatch(setToDos(toDos));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  const resetUserToDos = () => {
+    dispatch(setToDos([]));
   };
 
   const toDosLeft = toDos.filter((toDo) => toDo.active).length;
@@ -43,9 +82,11 @@ const useToDo = () => {
     filter,
     createNewToDo,
     deleteToDo,
-    toggleToDoActiveState,
+    toggleToDoActiveStatus,
     setFilter,
     toDosLeft,
+    retrieveUserToDos,
+    resetUserToDos,
   };
 };
 

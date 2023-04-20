@@ -9,7 +9,7 @@ import Toaster from './components/Toaster/Toaster';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { AuthenticatedRoute, UnauthenticatedRoute } from './guards/AuthGuard';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <ThemeContextProvider>
       <AuthProvider>

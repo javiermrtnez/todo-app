@@ -10,6 +10,11 @@ export interface ToDo {
   active: boolean;
 }
 
+export interface ToDoIdValue {
+  id: ToDoId;
+  value: ToDoValue;
+}
+
 // Define the initial state using that type
 const initialState: ToDo[] = [];
 
@@ -17,11 +22,16 @@ export const toDosSlice = createSlice({
   name: 'toDos',
   initialState,
   reducers: {
-    createToDo: (state, action: PayloadAction<ToDoValue>) => {
-      const value = action.payload;
+    setToDos: (state, action: PayloadAction<ToDo[]>) => {
+      const { payload } = action;
+
+      return payload;
+    },
+    createToDo: (state, action: PayloadAction<ToDoIdValue>) => {
+      const { id, value } = action.payload;
 
       const toDo = {
-        id: crypto.randomUUID(),
+        id,
         value,
         active: true,
       };
@@ -44,4 +54,5 @@ export const toDosSlice = createSlice({
 export default toDosSlice.reducer;
 
 // En REDUX se haría 'DELETE_USER_BY_ID' -> Más boilerplate
-export const { createToDo, deleteToDoById, toggleToDoActiveStatusById } = toDosSlice.actions;
+export const { setToDos, createToDo, deleteToDoById, toggleToDoActiveStatusById } =
+  toDosSlice.actions;

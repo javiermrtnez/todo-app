@@ -4,7 +4,7 @@ import SCToDoList from './ToDoList.style';
 import useToDo from '../../hooks/useToDo';
 
 const ToDoList = () => {
-  const { toDosLeft, filteredToDos, filter, deleteToDo, toggleToDoActiveState, setFilter } =
+  const { toDosLeft, filteredToDos, filter, deleteToDo, toggleToDoActiveStatus, setFilter } =
     useToDo();
 
   const handleFilterButton = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -21,7 +21,7 @@ const ToDoList = () => {
                 checked={!active}
                 type='checkbox'
                 onChange={() => {
-                  toggleToDoActiveState(id);
+                  toggleToDoActiveStatus(id);
                 }}
               />
 
