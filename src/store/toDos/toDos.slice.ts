@@ -46,11 +46,14 @@ export const toDosSlice = createSlice({
 
       return state.map((toDo) => (toDo.id === id ? { ...toDo, active: !toDo.active } : toDo));
     },
+    resetToDos: () => {
+      return [];
+    },
   },
 });
 
 export default toDosSlice.reducer;
 
 // En REDUX se haría 'DELETE_USER_BY_ID' -> Más boilerplate
-export const { setToDos, createToDo, deleteToDoById, toggleToDoActiveStatusById } =
+export const { setToDos, createToDo, deleteToDoById, toggleToDoActiveStatusById, resetToDos } =
   toDosSlice.actions;

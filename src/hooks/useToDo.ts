@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { FILTERS } from '../utils/constants/filters';
-import { useAppDispatch, useAppSelector } from '../hooks/store';
+import { useAppDispatch, useAppSelector } from './store';
 import {
   ToDoId,
   createToDo,
   deleteToDoById,
   toggleToDoActiveStatusById,
   setToDos,
+  resetToDos,
 } from '../store/toDos/toDos.slice';
 import * as toDosService from '../services/toDos.service';
 import { DocumentData, QuerySnapshot } from 'firebase/firestore';
@@ -72,7 +73,7 @@ const useToDo = () => {
   };
 
   const resetUserToDos = () => {
-    dispatch(setToDos([]));
+    dispatch(resetToDos());
   };
 
   const toDosLeft = toDos.filter((toDo) => toDo.active).length;
