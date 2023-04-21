@@ -23,9 +23,7 @@ export const toDosSlice = createSlice({
   initialState,
   reducers: {
     setToDos: (state, action: PayloadAction<ToDo[]>) => {
-      const { payload } = action;
-
-      return payload;
+      return action.payload;
     },
     createToDo: (state, action: PayloadAction<ToDoIdValue>) => {
       const { id, value } = action.payload;

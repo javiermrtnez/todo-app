@@ -1,7 +1,7 @@
 import { EMPTY_TODO_FILTERS_TEXT, FILTERS } from '../../utils/constants/filters';
-import iconCross from '../../assets/icons/icon-cross.svg';
 import SCToDoList from './ToDoList.style';
 import useToDo from '../../hooks/useToDo';
+import { CrossIcon } from '../Icons/Icons';
 
 const ToDoList = () => {
   const { toDosLeft, filteredToDos, filter, deleteToDo, toggleToDoActiveStatus, setFilter } =
@@ -34,7 +34,7 @@ const ToDoList = () => {
                 deleteToDo(id);
               }}
             >
-              <img src={iconCross} />
+              <CrossIcon />
             </button>
           </div>
         ))

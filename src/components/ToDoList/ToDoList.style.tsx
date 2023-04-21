@@ -16,6 +16,7 @@ const SCToDoList = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
     min-height: 70px;
     padding: 15px 20px;
     border-bottom: 1px solid var(--accents-2);
