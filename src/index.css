@@ -103,7 +103,9 @@ button {
 }
 
 /* Disable highlighted selection on buttons */
-button {
+button,
+input,
+a {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
