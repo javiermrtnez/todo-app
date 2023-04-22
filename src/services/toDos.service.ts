@@ -1,14 +1,13 @@
 import {
   DocumentData,
-  DocumentReference,
   QuerySnapshot,
   Timestamp,
-  addDoc,
   collection,
   deleteDoc,
   doc,
   getDoc,
   getDocs,
+  setDoc,
   updateDoc,
 } from 'firebase/firestore';
 import { auth, db } from '../firebase/config';
@@ -34,10 +33,10 @@ export const getUserToDos = async (): Promise<QuerySnapshot<DocumentData>> => {
 /**
  * Create new ToDo in "users > toDos" collection
  */
-export const createToDo = async (value: string): Promise<DocumentReference> => {
-  const toDosRef = collection(db, 'users', auth?.currentUser?.uid ?? '', 'toDos');
+export const createToDo = async (toDoId: string, value: string): Promise<void> => {
+  const toDosRef = doc(db, 'users', auth?.currentUser?.uid ?? '', 'toDos', toDoId);
 
-  return addDoc(toDosRef, {
+  return setDoc(toDosRef, {
     value,
     active: true,
     createdAt: Timestamp.now(),

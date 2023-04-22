@@ -8,7 +8,7 @@ import {
   toggleToDoActiveStatusById,
   setToDos,
   resetToDos,
-} from '../store/toDos/toDos.slice';
+} from '../store/slices/toDos.slice';
 import * as toDosService from '../services/toDos.service';
 import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 
@@ -29,36 +29,20 @@ const useToDo = () => {
   }, [toDos, filter]);
 
   const createNewToDo = (toDoValue: string) => {
-    toDosService
-      .createToDo(toDoValue)
-      .then((toDoRef) => {
-        dispatch(createToDo({ id: toDoRef.id, value: toDoValue }));
+    dispatch(
+      createToDo({
+        id: crypto.randomUUID(),
+        value: toDoValue,
       })
-      .catch((e) => {
-        console.log(e);
-      });
+    );
   };
 
   const deleteToDo = (id: ToDoId): void => {
-    toDosService
-      .deleteToDo(id)
-      .then(() => {
-        dispatch(deleteToDoById(id));
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    dispatch(deleteToDoById(id));
   };
 
   const toggleToDoActiveStatus = (id: ToDoId): void => {
-    toDosService
-      .toggleToDoActiveStatus(id)
-      .then(() => {
-        dispatch(toggleToDoActiveStatusById(id));
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    dispatch(toggleToDoActiveStatusById(id));
   };
 
   const retrieveUserToDos = () => {

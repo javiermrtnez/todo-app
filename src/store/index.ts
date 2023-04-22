@@ -1,23 +1,12 @@
-import { Middleware, configureStore } from '@reduxjs/toolkit';
-import toDosReducer from './toDos/toDos.slice';
-
-// const persistanceDatabaseMiddleware: Middleware = (store) => (next) => (action) => {
-//   const { type, payload } = action;
-
-//   // FASE 1
-//   console.log(store.getState());
-
-//   next(action);
-
-//   // FASE 2
-//   console.log(store.getState());
-// };
+import { configureStore } from '@reduxjs/toolkit';
+import toDosMiddleware from './middlewares/toDosMiddleware';
+import { toDosSlice } from './slices/toDos.slice';
 
 export const store = configureStore({
   reducer: {
-    toDos: toDosReducer,
+    toDos: toDosSlice.reducer,
   },
-  // middleware: [persistanceDatabaseMiddleware],
+  middleware: [toDosMiddleware],
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

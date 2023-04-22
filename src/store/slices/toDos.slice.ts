@@ -28,23 +28,41 @@ export const toDosSlice = createSlice({
     createToDo: (state, action: PayloadAction<ToDoIdValue>) => {
       const { id, value } = action.payload;
 
-      const toDo = {
+      state.unshift({
         id,
         value,
         active: true,
-      };
+      });
+    },
+    rollbackCreateToDo: (state, action: PayloadAction<ToDoId>) => {
+      const id = action.payload;
+      const isToDoCreated = state.some((toDo) => toDo.id === id);
 
-      state.unshift(toDo);
+      if (isToDoCreated) {
+        return state.filter((toDo) => toDo.id !== id);
+      }
     },
     deleteToDoById: (state, action: PayloadAction<ToDoId>) => {
       const id = action.payload;
 
       return state.filter((toDo) => toDo.id !== id);
     },
+    rollbackDeleteToDoById: (state, action: PayloadAction<ToDo>) => {
+      const isToDoAlreadyCreated = state.some((toDo) => toDo.id === action.payload.id);
+
+      if (!isToDoAlreadyCreated) {
+        state.unshift(action.payload);
+      }
+    },
     toggleToDoActiveStatusById: (state, action: PayloadAction<ToDoId>) => {
       const id = action.payload;
 
       return state.map((toDo) => (toDo.id === id ? { ...toDo, active: !toDo.active } : toDo));
+    },
+    rollbackToggleToDoActiveStatusById: (state, action: PayloadAction<ToDo>) => {
+      const prevToDo = action.payload;
+
+      return state.map((toDo) => (toDo.id === prevToDo.id ? prevToDo : toDo));
     },
     resetToDos: () => {
       return [];
@@ -52,8 +70,13 @@ export const toDosSlice = createSlice({
   },
 });
 
-export default toDosSlice.reducer;
-
-// En REDUX se haría 'DELETE_USER_BY_ID' -> Más boilerplate
-export const { setToDos, createToDo, deleteToDoById, toggleToDoActiveStatusById, resetToDos } =
-  toDosSlice.actions;
+export const {
+  setToDos,
+  createToDo,
+  rollbackCreateToDo,
+  deleteToDoById,
+  rollbackDeleteToDoById,
+  toggleToDoActiveStatusById,
+  rollbackToggleToDoActiveStatusById,
+  resetToDos,
+} = toDosSlice.actions;
