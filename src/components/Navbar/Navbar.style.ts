@@ -47,16 +47,6 @@ const SCNavbar = styled.div`
       display: flex;
       align-items: center;
       gap: 20px;
-
-      .sign-out-button {
-        background-color: var(--red);
-        color: white;
-
-        :hover {
-          background-color: #d05865;
-          color: white;
-        }
-      }
     }
 
     .navbar-buttons {
@@ -69,16 +59,27 @@ const SCNavbar = styled.div`
       }
     }
 
-    .navigation-button,
-    .sign-out-button {
+    .navigation-button {
       padding: 7px 9px;
-      border-radius: 6px;
+      border-radius: 5px;
       transition: color 0.2s ease, background-color 0.2s ease;
       font-weight: 500;
       line-height: 1;
 
       :hover {
         background-color: rgba(208, 215, 222, 0.32);
+        color: var(--geist-foreground);
+      }
+    }
+
+    .white-black-button {
+      background-color: var(--geist-foreground);
+      color: var(--geist-background);
+      border: 1px solid var(--geist-foreground);
+      transition: background-color 0.15s ease, color 0.15s ease;
+
+      :hover {
+        background-color: transparent;
         color: var(--geist-foreground);
       }
     }

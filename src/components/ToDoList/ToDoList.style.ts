@@ -79,6 +79,7 @@ const SCToDoList = styled.div`
 
     .remove-button {
       opacity: 0;
+      padding: 5px;
       transition: opacity 200ms ease 0s;
     }
 

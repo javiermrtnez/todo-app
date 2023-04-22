@@ -50,13 +50,13 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link className='navigation-button' to='/login'>
+                <Link className='navigation-button white-black-button' to='/login'>
                   Log in
                 </Link>
               </li>
             </ul>
           ) : (
-            <button className='sign-out-button' onClick={handleSignOut}>
+            <button className='navigation-button white-black-button' onClick={handleSignOut}>
               Sign out
             </button>
           )}
