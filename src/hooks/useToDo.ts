@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { FILTERS } from '../utils/constants/filters';
 import { useAppDispatch, useAppSelector } from './store';
 import {
@@ -15,18 +15,21 @@ import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 const useToDo = () => {
   const dispatch = useAppDispatch();
   const toDos = useAppSelector((state) => state.toDos);
-  const [filteredToDos, setFilteredToDos] = useState(toDos);
   const [filter, setFilter] = useState(FILTERS.ALL);
 
-  useEffect(() => {
+  const filteredToDos = useMemo(() => {
     if (filter === FILTERS.ACTIVE) {
-      setFilteredToDos(toDos.filter((toDo) => toDo.active));
+      return toDos.filter((toDo) => toDo.active);
     } else if (filter === FILTERS.COMPLETE) {
-      setFilteredToDos(toDos.filter((toDo) => !toDo.active));
+      return toDos.filter((toDo) => !toDo.active);
     } else {
-      setFilteredToDos(toDos);
+      return toDos;
     }
   }, [toDos, filter]);
+
+  const toDosLeft = useMemo(() => {
+    return toDos.filter((toDo) => toDo.active).length;
+  }, [toDos]);
 
   const createNewToDo = (toDoValue: string) => {
     dispatch(
@@ -60,16 +63,14 @@ const useToDo = () => {
     dispatch(resetToDos());
   };
 
-  const toDosLeft = toDos.filter((toDo) => toDo.active).length;
-
   return {
     filteredToDos,
+    toDosLeft,
     filter,
     createNewToDo,
     deleteToDo,
     toggleToDoActiveStatus,
     setFilter,
-    toDosLeft,
     retrieveUserToDos,
     resetUserToDos,
   };
