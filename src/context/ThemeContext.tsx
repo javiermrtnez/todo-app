@@ -8,9 +8,7 @@ const ThemeContext = createContext({
 
 export const ThemeContextProvider = ({ children }) => {
   const getSystemTheme = () =>
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? THEMES.dark
-      : THEMES.light;
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? THEMES.dark : THEMES.light;
 
   const [theme, setTheme] = useState(getSystemTheme());
 
@@ -22,11 +20,7 @@ export const ThemeContextProvider = ({ children }) => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 
 export const useTheme = () => {
