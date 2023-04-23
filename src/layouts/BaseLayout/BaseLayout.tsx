@@ -1,15 +1,25 @@
 import Navbar from '../../components/Navbar/Navbar';
+import { useAuthContext } from '../../context/AuthContext';
+import LoadingPage from '../../pages/LoadingPage/LoadingPage';
 import SCBaseLayout from './BaseLayout.style';
 import { Outlet } from 'react-router-dom';
 
 const BaseLayout = () => {
+  const { user } = useAuthContext();
+
   return (
     <SCBaseLayout>
-      <Navbar />
+      {user === undefined ? (
+        <LoadingPage />
+      ) : (
+        <>
+          <Navbar />
 
-      <div className='base-content'>
-        <Outlet />
-      </div>
+          <div className='base-content'>
+            <Outlet />
+          </div>
+        </>
+      )}
     </SCBaseLayout>
   );
 };
