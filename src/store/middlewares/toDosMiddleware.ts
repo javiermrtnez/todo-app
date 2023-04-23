@@ -65,7 +65,7 @@ const toDosMiddleware: Middleware = (store) => (next) => (action) => {
   }
 
   // FASE 2
-  console.log(store.getState());
+  // console.log(store.getState());
 };
 
 export default toDosMiddleware;
