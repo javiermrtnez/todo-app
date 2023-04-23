@@ -125,9 +125,11 @@ const SCToDoList = styled.div`
     }
   }
 
-  @media only screen and (max-width: 961px) {
-    .remove-button {
-      opacity: 1;
+  @media (max-width: 961px) {
+    .todo-item {
+      .remove-button {
+        opacity: 1;
+      }
     }
   }
 `;
