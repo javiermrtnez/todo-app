@@ -13,7 +13,7 @@ const Navbar = () => {
 
     logOut()
       .then(() => {
-        navigate('/');
+        navigate('/login');
       })
       .catch((e) => {
         console.log(e.message);
