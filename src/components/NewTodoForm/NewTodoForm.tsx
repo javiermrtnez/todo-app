@@ -20,7 +20,7 @@ const NewTodoForm = () => {
 
   return (
     <SCNewTodoForm onSubmit={handleCreateToDo}>
-      <input placeholder='Create a new todo...' name='newToDo' autoFocus />
+      <input placeholder='Create a new todo...' name='newToDo' />
 
       <button type='submit'>
         <SendIcon />
