@@ -1,5 +1,4 @@
 :root {
-  /* font-family: 'Josefin Sans', sans-serif; */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: var(--font-weight-regular);
@@ -7,7 +6,6 @@
   /* COMMON COLORS */
   --check-background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   --white: #FFFFFF;
-  --red: #BC1224;
 
   /* FONT WEIGHTS */
   --font-weight-regular: 400;
@@ -21,13 +19,9 @@
 }
 
 :root[data-theme="dark-theme"] {
-  --app-background-color: #000;
   --navbar-background-color: rgba(0, 0, 0, .5);
   --navbar-border-bottom: inset 0 -1px 0 0 hsla(0, 0%, 100%, .1);
   --font-color: #afb1ca;
-  --font-color-filter: invert(88%) sepia(74%) saturate(3433%) hue-rotate(179deg) brightness(87%) contrast(80%);
-  --input-placeholder-color: #74768c;
-  --card-background-color: hsl(235, 24%, 19%);
   --separator-color: #34364c;
   --active-filter-color: #5777c8;
 
@@ -42,18 +36,12 @@
   --geist-background: #000;
 
   --shadow-small: 0 0 0 1px var(--accents-2);
-  /* --backgroundg-image-desktop: url("./assets/backgrounds/bg-desktop-dark.jpg"); */
-  /* --backgroundg-mobile-desktop: url("./assets/backgrounds/bg-mobile-dark.jpg"); */
 }
 
 :root[data-theme="light-theme"] {
-  --app-background-color: #fff;
   --navbar-background-color: hsla(0, 0%, 100%, .8);
   --navbar-border-bottom: inset 0 -1px 0 0 rgba(0, 0, 0, .1);
   --font-color: #48494e;
-  --font-color-filter: invert(28%) sepia(6%) saturate(436%) hue-rotate(193deg) brightness(94%) contrast(93%);
-  --input-placeholder-color: #afaeb4;
-  --card-background-color: #FFFFFF;
   --separator-color: #e7e7eb;
   --active-filter-color: #5e7ebd;
 
@@ -68,24 +56,14 @@
   --geist-background: #fff;
 
   --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
-  /* --backgroundg-image-desktop: url("./assets/backgrounds/bg-desktop-light.jpg"); */
-  /* --backgroundg-mobile-desktop: url("./assets/backgrounds/bg-mobile-light.jpg"); */
 }
 
 body {
   min-height: 100vh;
   width: 100%;
-  /* margin: 0;
-  display: flex;
-  justify-content: center; */
 
   color: var(--accents-5);
   background-color: var(--accents-1);
-  /* background-image: var(--backgroundg-image-desktop); */
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: contain;
-
   transition: color 350ms ease 0s, background 350ms ease 0s;
 }
 
