@@ -23,13 +23,13 @@ const Navbar = () => {
   return (
     <SCNavbar>
       <header className='app-header'>
-        <div style={{ display: 'flex', gap: '20px' }}>
-          <Link className='logo-brand-container' to='/'>
-            <div className='logo' />
-            <h1 className='brand'>ToDoApp</h1>
-          </Link>
+        {/* <div style={{ display: 'flex', gap: '20px' }}> */}
+        <Link className='logo-brand-container' to='/'>
+          <div className='logo' />
+          <h1 className='brand'>ToDoApp</h1>
+        </Link>
 
-          {Boolean(user) && (
+        {/* {Boolean(user) && (
             <ul className='navbar-buttons'>
               <li>
                 <Link className='navigation-button' to='/'>
@@ -37,8 +37,8 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-          )}
-        </div>
+          )} */}
+        {/* </div> */}
 
         <div className='navbar-buttons-toggle-theme-container'>
           {!user ? (
