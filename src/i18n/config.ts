@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { initReactI18next, useTranslation } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import en from '../i18n/en.json';
 import es from '../i18n/es.json';
 
@@ -13,7 +13,8 @@ const resources = {
   },
 };
 
-await i18n
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+i18n
   // detect user language
   // learn more: https://github.com/i18next/i18next-browser-languageDetector
   .use(LanguageDetector)
