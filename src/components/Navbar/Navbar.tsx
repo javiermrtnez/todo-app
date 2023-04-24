@@ -3,6 +3,7 @@ import { logOut } from '../../services/auth.service';
 import SCNavbar from './Navbar.style';
 import { Link, useNavigate } from 'react-router-dom';
 import ThemeToggleButton from '../ThemeToggleButton/ThemeToggleButton';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
 
 const Navbar = () => {
   const { user } = useAuthContext();
@@ -61,7 +62,10 @@ const Navbar = () => {
             </button>
           )}
 
-          <ThemeToggleButton />
+          <div className='theme-language-buttons-container'>
+            <ThemeToggleButton />
+            <LanguageSelector />
+          </div>
         </div>
       </header>
     </SCNavbar>

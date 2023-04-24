@@ -4,8 +4,10 @@ import Separator from '../../components/Separator/Separator';
 import useAuth from '../../hooks/useAuth';
 import SCSignUpPage from './SignUpPage.style';
 import { notificationError } from '../../utils/functions/notifications';
+import { useTranslation } from 'react-i18next';
 
 const SignUpPage = () => {
+  const { t } = useTranslation();
   const { signUpWithEmailAndPassword } = useAuth();
 
   const handleSignUpWithEmailAndPassword = (e) => {
@@ -26,25 +28,31 @@ const SignUpPage = () => {
 
   return (
     <SCSignUpPage>
-      <h1>Create your account</h1>
+      <h1>{t('signUp.title')}</h1>
 
       <form onSubmit={handleSignUpWithEmailAndPassword}>
-        <Input label='Email' type='email' name='email' required />
-
-        <Input label='Password' type='password' name='password' required minLength='6' />
+        <Input label={t('logInSignUpCommons.email')} type='email' name='email' required />
 
         <Input
-          label='Repeat password'
+          label={t('logInSignUpCommons.password')}
+          type='password'
+          name='password'
+          required
+          minLength='6'
+        />
+
+        <Input
+          label={t('signUp.repeatPassword')}
           type='password'
           name='repeatPassword'
           required
           minLength='6'
         />
 
-        <button type='submit'>Create account</button>
+        <button type='submit'>{t('signUp.createAccount')}</button>
       </form>
 
-      <Separator text={'or'} />
+      <Separator text={t('logInSignUpCommons.or')} />
 
       <LogInProvidersButtons />
     </SCSignUpPage>

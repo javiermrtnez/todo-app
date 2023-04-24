@@ -11,11 +11,6 @@ const SCNavbar = styled.div`
   backdrop-filter: saturate(180%) blur(5px);
   box-shadow: var(--navbar-border-bottom);
 
-  a,
-  button {
-    font-size: 14px;
-  }
-
   .app-header {
     display: flex;
     align-items: center;
@@ -47,6 +42,19 @@ const SCNavbar = styled.div`
       display: flex;
       align-items: center;
       gap: 20px;
+
+      li > a,
+      > button {
+        font-size: 14px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+      }
+
+      .theme-language-buttons-container {
+        display: flex;
+        gap: 5px;
+      }
     }
 
     .navbar-buttons {
@@ -67,7 +75,7 @@ const SCNavbar = styled.div`
       line-height: 1;
 
       :hover {
-        background-color: rgba(208, 215, 222, 0.32);
+        background-color: var(--accents-2);
         color: var(--geist-foreground);
       }
     }

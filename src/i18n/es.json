@@ -1,0 +1,24 @@
+{
+  "signUp": {
+    "title": "Cree su cuenta",
+    "repeatPassword": "Repita contraseña",
+    "createAccount": "Crear cuenta"
+  },
+  "logIn": {
+    "title": "Iniciar sesión en ToDo App",
+    "logIn": "Iniciar sesión"
+  },
+  "logInSignUpCommons": {
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "or": "o"
+  },
+  "logInProviders": {
+    "continueWithGoogle": "Continuar con Google",
+    "continueWithGitHub": "Continuar con GitHub"
+  },
+  "languages": {
+    "es": "Español",
+    "en": "Inglés"
+  }
+}

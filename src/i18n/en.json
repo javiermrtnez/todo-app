@@ -1,0 +1,24 @@
+{
+  "signUp": {
+    "title": "Create your account",
+    "repeatPassword": "Repeat password",
+    "createAccount": "Create account"
+  },
+  "logIn": {
+    "title": "Log into ToDo App",
+    "logIn": "Log in"
+  },
+  "logInSignUpCommons": {
+    "email": "Email",
+    "password": "Password",
+    "or": "or"
+  },
+  "logInProviders": {
+    "continueWithGoogle": "Continue with Google",
+    "continueWithGitHub": "Continue with GitHub"
+  },
+  "languages": {
+    "es": "Spanish",
+    "en": "English"
+  }
+}

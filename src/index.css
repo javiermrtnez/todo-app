@@ -26,7 +26,9 @@
   --active-filter-color: #5777c8;
 
   --accents-1: #111;
+  --accents-1-transparent: #111111f0;
   --accents-2: #333;
+  --accents-2-transparent: #333333f0;
   --accents-3: #444;
   --accents-4: #666;
   --accents-5: #888;
@@ -46,7 +48,9 @@
   --active-filter-color: #5e7ebd;
 
   --accents-1: #fafafa;
+  --accents-1-transparent: #fafafaf0;
   --accents-2: #eaeaea;
+  --accents-2-transparent: #eaeaeaf0;
   --accents-3: #999;
   --accents-4: #888;
   --accents-5: #666;

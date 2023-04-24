@@ -3,8 +3,10 @@ import LogInProvidersButtons from '../../components/LogInProvidersButtons/LogInP
 import Input from '../../components/Input/Input';
 import Separator from '../../components/Separator/Separator';
 import useAuth from '../../hooks/useAuth';
+import { useTranslation } from 'react-i18next';
 
 const LogInPage = () => {
+  const { t } = useTranslation();
   const { logInWithEmailAndPassword } = useAuth();
 
   const handleLogInWithEmailAndPassword = (e) => {
@@ -18,17 +20,17 @@ const LogInPage = () => {
 
   return (
     <SCLogInPage>
-      <h1>Log into ToDo App</h1>
+      <h1>{t('logIn.title')}</h1>
 
       <form onSubmit={handleLogInWithEmailAndPassword}>
-        <Input label='Email' type='email' name='email' required />
+        <Input label={t('logInSignUpCommons.email')} type='email' name='email' required />
 
-        <Input label='Password' type='password' name='password' required />
+        <Input label={t('logInSignUpCommons.password')} type='password' name='password' required />
 
-        <button type='submit'>Log in</button>
+        <button type='submit'>{t('logIn.logIn')}</button>
       </form>
 
-      <Separator text={'or'} />
+      <Separator text={t('logInSignUpCommons.or')} />
 
       <LogInProvidersButtons />
     </SCLogInPage>
