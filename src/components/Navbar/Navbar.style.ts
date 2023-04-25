@@ -84,11 +84,22 @@ const SCNavbar = styled.div`
       background-color: var(--geist-foreground);
       color: var(--geist-background);
       border: 1px solid var(--geist-foreground);
-      transition: background-color 0.15s ease, color 0.15s ease;
 
       :hover {
         background-color: transparent;
         color: var(--geist-foreground);
+      }
+    }
+
+    .grey-white-button {
+      background-color: var(--geist-background);
+      border: 1px solid var(--accents-5);
+      color: var(--accents-5);
+
+      :hover {
+        background-color: transparent;
+        color: var(--geist-foreground);
+        border-color: var(--geist-foreground);
       }
     }
   }

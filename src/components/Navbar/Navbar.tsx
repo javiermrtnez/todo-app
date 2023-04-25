@@ -59,7 +59,7 @@ const Navbar = () => {
               </li>
             </ul>
           ) : (
-            <button className='navigation-button white-black-button' onClick={handleSignOut}>
+            <button className='navigation-button grey-white-button' onClick={handleSignOut}>
               {t('navbar.signOut')}
             </button>
           )}
