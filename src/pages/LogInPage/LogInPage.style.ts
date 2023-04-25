@@ -8,6 +8,10 @@ const SCLogInPage = styled.div`
   flex-direction: column;
   align-items: center;
 
+  > h1 {
+    text-align: center;
+  }
+
   > form {
     width: 100%;
 
