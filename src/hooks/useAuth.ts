@@ -3,8 +3,10 @@ import * as authService from '../services/auth.service';
 import { notificationError, notificationSuccess } from '../utils/functions/notifications';
 import { AdditionalUserInfo, UserCredential, getAdditionalUserInfo } from 'firebase/auth';
 import useUser from './useUser';
+import { useTranslation } from 'react-i18next';
 
 const useAuth = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { createUser } = useUser();
 
@@ -23,13 +25,11 @@ const useAuth = () => {
       .then(async (userCredential) => {
         await createUser(userCredential.user.uid, userCredential.user.email);
 
-        notificationSuccess('You have successfully signed up!');
+        notificationSuccess(t('notifications.successSignUp'));
         navigate('/');
       })
       .catch((e) => {
-        notificationError(
-          'Oops! It looks like there was an error with your sign up. Please try again.'
-        );
+        notificationError(t('notifications.errorSignUp'));
         console.log(e.message);
       });
   };
@@ -38,13 +38,11 @@ const useAuth = () => {
     authService
       .logIn(email, password)
       .then(() => {
-        notificationSuccess('You have been logged in successfully!');
+        notificationSuccess(t('notifications.successLogIn'));
         navigate('/');
       })
       .catch((e) => {
-        notificationError(
-          'Oops! It looks like there was an error with your login. Please try again.'
-        );
+        notificationError(t('notifications.errorLogIn'));
         console.log(e.message);
       });
   };
@@ -55,13 +53,11 @@ const useAuth = () => {
       .then(async (userCredential) => {
         await saveNewUser(userCredential);
 
-        notificationSuccess('You have been logged in successfully!');
+        notificationSuccess(t('notifications.successLogIn'));
         navigate('/');
       })
       .catch((e) => {
-        notificationError(
-          'Oops! It looks like there was an error with your login. Please try again.'
-        );
+        notificationError(t('notifications.errorLogIn'));
         console.log(e.message);
       });
   };
@@ -72,13 +68,11 @@ const useAuth = () => {
       .then(async (userCredential) => {
         await saveNewUser(userCredential);
 
-        notificationSuccess('You have been logged in successfully!');
+        notificationSuccess(t('notifications.successLogIn'));
         navigate('/');
       })
       .catch((e) => {
-        notificationError(
-          'Oops! It looks like there was an error with your login. Please try again.'
-        );
+        notificationError(t('notifications.errorLogIn'));
         console.log(e.message);
       });
   };

@@ -1,14 +1,22 @@
-import { EMPTY_TODO_FILTERS_TEXT, FILTERS } from '../../utils/constants/filters';
+import { FILTERS } from '../../utils/constants/filters';
 import SCToDoList from './ToDoList.style';
 import useToDo from '../../hooks/useToDo';
 import { CrossIcon } from '../Icons/Icons';
+import { useTranslation } from 'react-i18next';
 
 const ToDoList = () => {
+  const { t } = useTranslation();
   const { toDosLeft, filteredToDos, filter, deleteToDo, toggleToDoActiveStatus, setFilter } =
     useToDo();
 
   const handleFilterButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     setFilter((e.target as HTMLButtonElement).id);
+  };
+
+  const EMPTY_TODO_FILTERS_TEXT = {
+    [FILTERS.ALL]: t('toDoPage.noToDoItems.left'),
+    [FILTERS.ACTIVE]: t('toDoPage.noToDoItems.active'),
+    [FILTERS.COMPLETE]: t('toDoPage.noToDoItems.completed'),
   };
 
   return (
@@ -40,12 +48,16 @@ const ToDoList = () => {
         ))
       ) : (
         <div className='todo-item'>
-          <span className='todo-empty-text'>No to-do items {EMPTY_TODO_FILTERS_TEXT[filter]}!</span>
+          <span className='todo-empty-text'>{EMPTY_TODO_FILTERS_TEXT[filter]}</span>
         </div>
       )}
 
       <div className='todo-resume-item'>
-        <span>{toDosLeft} items left</span>
+        <span>
+          {t('toDoPage.itemsLeft', {
+            numItemsLeft: toDosLeft,
+          })}
+        </span>
 
         <div className='filter-buttons-container'>
           <button
@@ -53,7 +65,7 @@ const ToDoList = () => {
             id={FILTERS.ALL}
             onClick={handleFilterButton}
           >
-            All
+            {t('toDoPage.filters.all')}
           </button>
 
           <button
@@ -61,7 +73,7 @@ const ToDoList = () => {
             id={FILTERS.ACTIVE}
             onClick={handleFilterButton}
           >
-            Active
+            {t('toDoPage.filters.active')}
           </button>
 
           <button
@@ -69,7 +81,7 @@ const ToDoList = () => {
             id={FILTERS.COMPLETE}
             onClick={handleFilterButton}
           >
-            Completed
+            {t('toDoPage.filters.completed')}
           </button>
         </div>
       </div>

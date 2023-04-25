@@ -19,7 +19,7 @@ const SignUpPage = () => {
 
     // ToDo - Handle errors with React Hook Form
     if (password !== repeatPassword) {
-      notificationError('Oops, the passwords you entered do not match. Please try again.');
+      notificationError(t('notifications.errorSignUpPasswords'));
       return;
     }
 

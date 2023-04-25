@@ -1,4 +1,23 @@
 {
+  "languages": {
+    "es": "Español",
+    "en": "Inglés"
+  },
+  "notifications": {
+    "successSignUp": "¡Te has registrado con éxito!",
+    "successLogIn": "¡Has iniciado sesión con éxito!",
+    "errorSignUp": "¡Ups! Parece que hubo un error con tu registro. Por favor, inténtalo de nuevo más tarde.",
+    "errorLogIn": "¡Ups! Parece que hubo un error con tu inicio de sesión. Por favor, inténtalo de nuevo más tarde.",
+    "errorSignUpPasswords": "¡Ups! Las contraseñas que ingresaste no coinciden. Por favor, inténtalo de nuevo.",
+    "errorCreatingToDo": "¡Ups! Hubo un error al crear el ToDo. Por favor, inténtalo de nuevo más tarde.",
+    "errorDeletingToDo": "¡Ups! Hubo un error al eliminar el ToDo. Por favor, inténtalo de nuevo más tarde.",
+    "errorChangingStatusToDo": "¡Ups! Hubo un error al cambiar el estado del ToDo. Por favor, inténtalo de nuevo más tarde."
+  },
+  "navbar": {
+    "signUp": "Regístrate",
+    "logIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión"
+  },
   "signUp": {
     "title": "Cree su cuenta",
     "repeatPassword": "Repita contraseña",
@@ -17,8 +36,19 @@
     "continueWithGoogle": "Continuar con Google",
     "continueWithGitHub": "Continuar con GitHub"
   },
-  "languages": {
-    "es": "Español",
-    "en": "Inglés"
+  "toDoPage": {
+    "title": "Mis ToDos",
+    "createNewTodo": "Crear un nuevo ToDo...",
+    "itemsLeft": "{{numItemsLeft}} tareas restantes",
+    "noToDoItems": {
+      "left": "¡No tienes más ToDos!",
+      "active": "¡No tienes más ToDos activos!",
+      "completed": "¡No tienes más ToDos completados!"
+    },
+    "filters": {
+      "all": "Todos",
+      "active": "Activos",
+      "completed": "Completados"
+    }
   }
 }

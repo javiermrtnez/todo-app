@@ -1,8 +1,10 @@
 import SCNewTodoForm from './NewTodoForm.style';
 import { SendIcon } from '../Icons/Icons';
 import useToDo from '../../hooks/useToDo';
+import { useTranslation } from 'react-i18next';
 
 const NewTodoForm = () => {
+  const { t } = useTranslation();
   const { createNewToDo } = useToDo();
 
   const handleCreateToDo = (event): void => {
@@ -20,7 +22,7 @@ const NewTodoForm = () => {
 
   return (
     <SCNewTodoForm onSubmit={handleCreateToDo}>
-      <input placeholder='Create a new todo...' name='newToDo' />
+      <input placeholder={t('toDoPage.createNewTodo')} name='newToDo' />
 
       <button type='submit'>
         <SendIcon />

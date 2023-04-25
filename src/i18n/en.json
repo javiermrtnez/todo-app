@@ -1,4 +1,23 @@
 {
+  "languages": {
+    "es": "Spanish",
+    "en": "English"
+  },
+  "notifications": {
+    "successSignUp": "You have been signed up successfully!",
+    "successLogIn": "You have been logged in successfully!",
+    "errorSignUp": "Oops! It looks like there was an error with your sign up. Please try again later.",
+    "errorLogIn": "Oops! It looks like there was an error with your log in. Please try again later.",
+    "errorSignUpPasswords": "Oops, the passwords you entered do not match. Please try again.",
+    "errorCreatingToDo": "Oops! There was an error creating the ToDo. Please, try again later.",
+    "errorDeletingToDo": "Oops! There was an error deleting the ToDo. Please, try again later.",
+    "errorChangingStatusToDo": "Oops! There was an error changing ToDo status. Please, try again later."
+  },
+  "navbar": {
+    "signUp": "Sign up",
+    "logIn": "Log in",
+    "signOut": "Sign out"
+  },
   "signUp": {
     "title": "Create your account",
     "repeatPassword": "Repeat password",
@@ -17,8 +36,19 @@
     "continueWithGoogle": "Continue with Google",
     "continueWithGitHub": "Continue with GitHub"
   },
-  "languages": {
-    "es": "Spanish",
-    "en": "English"
+  "toDoPage": {
+    "title": "My ToDos",
+    "createNewTodo": "Create a new ToDo...",
+    "itemsLeft": "{{numItemsLeft}} items left",
+    "noToDoItems": {
+      "left": "No ToDo items left!",
+      "active": "No ToDo items active!",
+      "completed": "No ToDo items completed!"
+    },
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "completed": "Completed"
+    }
   }
 }

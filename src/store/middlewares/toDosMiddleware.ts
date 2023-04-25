@@ -10,8 +10,10 @@ import {
   toggleToDoActiveStatusById,
 } from '../slices/toDos.slice';
 import { notificationError } from '../../utils/functions/notifications';
+import { useTranslation } from 'react-i18next';
 
 const toDosMiddleware: Middleware = (store) => (next) => (action) => {
+  // const { t } = useTranslation();
   const { type, payload } = action;
   const previousState = store.getState();
 
@@ -25,7 +27,7 @@ const toDosMiddleware: Middleware = (store) => (next) => (action) => {
       toDosService.createToDo(id, value).catch((e) => {
         store.dispatch(rollbackCreateToDo(id));
 
-        notificationError('Oops! There was an error creating the ToDo. Please, try again later.');
+        // notificationError(t('notifications.errorCreatingToDo'));
       });
 
       break;
@@ -39,7 +41,7 @@ const toDosMiddleware: Middleware = (store) => (next) => (action) => {
           store.dispatch(rollbackDeleteToDoById(toDoToRemove));
         }
 
-        notificationError('Oops! There was an error deleting the ToDo. Please, try again later.');
+        // notificationError(t('notifications.errorDeletingToDo'));
       });
       break;
     }
@@ -53,9 +55,7 @@ const toDosMiddleware: Middleware = (store) => (next) => (action) => {
         .catch((e) => {
           store.dispatch(rollbackToggleToDoActiveStatusById(toDoToToggle));
 
-          notificationError(
-            'Oops! There was an error changing ToDo status. Please, try again later.'
-          );
+          // notificationError(t('notifications.errorChangingStatusToDo'));
         });
 
       break;

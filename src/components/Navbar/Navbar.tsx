@@ -4,8 +4,10 @@ import SCNavbar from './Navbar.style';
 import { Link, useNavigate } from 'react-router-dom';
 import ThemeToggleButton from '../ThemeToggleButton/ThemeToggleButton';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const { user } = useAuthContext();
   const navigate = useNavigate();
 
@@ -46,19 +48,19 @@ const Navbar = () => {
             <ul className='navbar-buttons'>
               <li>
                 <Link className='navigation-button' to='/signup'>
-                  Sign Up
+                  {t('navbar.signUp')}
                 </Link>
               </li>
 
               <li>
                 <Link className='navigation-button white-black-button' to='/login'>
-                  Log in
+                  {t('navbar.logIn')}
                 </Link>
               </li>
             </ul>
           ) : (
             <button className='navigation-button white-black-button' onClick={handleSignOut}>
-              Sign out
+              {t('navbar.signOut')}
             </button>
           )}
 
