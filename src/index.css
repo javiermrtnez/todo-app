@@ -18,7 +18,7 @@
   --page-width-with-padding: calc(var(--page-width) + calc(2 * var(--page-padding)));
 }
 
-:root[data-theme="dark-theme"] {
+:root[data-theme="dark"] {
   --navbar-background-color: rgba(0, 0, 0, .5);
   --navbar-border-bottom: inset 0 -1px 0 0 hsla(0, 0%, 100%, .1);
   --font-color: #afb1ca;
@@ -40,7 +40,7 @@
   --shadow-small: 0 0 0 1px var(--accents-2);
 }
 
-:root[data-theme="light-theme"] {
+:root[data-theme="light"] {
   --navbar-background-color: hsla(0, 0%, 100%, .8);
   --navbar-border-bottom: inset 0 -1px 0 0 rgba(0, 0, 0, .1);
   --font-color: #48494e;
