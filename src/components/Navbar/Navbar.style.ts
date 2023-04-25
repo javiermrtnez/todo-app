@@ -21,24 +21,7 @@ const SCNavbar = styled.div`
     margin: auto;
     padding: 0 var(--page-padding);
 
-    .logo-brand-container {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-
-      .logo {
-        height: 24px;
-        width: 24px;
-        background-image: var(--check-background);
-        border-radius: 5px;
-      }
-
-      .brand {
-        font-size: 14px;
-      }
-    }
-
-    .navbar-buttons-toggle-theme-container {
+    .desktop-navbar-container {
       display: flex;
       align-items: center;
       gap: 20px;
@@ -49,11 +32,6 @@ const SCNavbar = styled.div`
         height: 32px;
         display: flex;
         align-items: center;
-      }
-
-      .theme-language-buttons-container {
-        display: flex;
-        gap: 5px;
       }
     }
 
@@ -102,7 +80,84 @@ const SCNavbar = styled.div`
         border-color: var(--geist-foreground);
       }
     }
+
+    /* .mobile-navbar-container {
+      display: none;
+
+      .hamburguer-button {
+        width: 24px;
+        height: 40px;
+
+        transition: transform 0.15s ease;
+
+        .hamburguer-icon {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          pointer-events: none;
+          justify-content: center;
+          align-items: center;
+
+          ::before,
+          ::after {
+            content: '';
+            display: block;
+            height: 1px;
+            width: 22px;
+            background-color: var(--geist-foreground);
+            transition: transform 0.15s ease;
+          }
+
+          ::before {
+            transform: translateY(-4px) rotate(0deg);
+          }
+
+          ::after {
+            transform: translateY(4px) rotate(0deg);
+          }
+        }
+
+        .mobile-menu-open {
+          ::before {
+            transform: translateY(1px) rotate(45deg);
+          }
+
+          ::after {
+            transform: translateY(0) rotate(-45deg);
+          }
+        }
+      }
+
+      .mobile-menu {
+        display: block;
+        height: calc(100vh - var(--navbar-height));
+        width: 100%;
+        max-width: 100vw;
+        padding: 0 24px 24px 24px;
+        background: var(--geist-background);
+        z-index: 2000;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: var(--navbar-height);
+        overflow-y: scroll;
+      }
+    } */
   }
+
+  /* @media screen and (max-width: 600px) {
+    .app-header {
+      .desktop-navbar-container {
+        display: none;
+      }
+
+      .mobile-navbar-container {
+        display: block;
+      }
+    }
+  } */
 `;
 
 export default SCNavbar;

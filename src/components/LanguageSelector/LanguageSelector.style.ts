@@ -29,7 +29,7 @@ const SCLanguageSelector = styled.div`
 
   > ul {
     position: absolute;
-    top: 36px;
+    bottom: 36px;
     right: 0;
 
     z-index: 10;

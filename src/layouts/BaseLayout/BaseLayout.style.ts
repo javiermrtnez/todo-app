@@ -5,6 +5,8 @@ const SCBaseLayout = styled.div`
   flex-direction: column;
   align-items: center;
 
+  min-height: 100vh;
+
   .base-content {
     width: 100%;
     max-width: var(--page-width-with-padding);
@@ -12,6 +14,8 @@ const SCBaseLayout = styled.div`
 
     display: flex;
     justify-content: center;
+
+    flex: 1;
 
     > div {
       width: 100%;
