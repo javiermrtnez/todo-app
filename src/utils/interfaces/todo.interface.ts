@@ -1,13 +1,11 @@
-// DEPRECATED - UNUSED
-export interface IToDo {
-  id: number;
+import { Timestamp } from 'firebase/firestore';
+
+export type ToDoId = string;
+
+// Define a type for the slice state
+export interface ToDo {
+  id: ToDoId;
   value: string;
   active: boolean;
-}
-
-export interface IToDos extends Array<IToDo> {}
-
-export interface INewTodoFormProps {
-  toDos: IToDos;
-  setToDos: (toDos: IToDos) => void;
+  createdAt: Timestamp;
 }

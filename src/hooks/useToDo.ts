@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react';
 import { FILTERS } from '../utils/constants/filters';
 import { useAppDispatch, useAppSelector } from './store';
 import {
-  ToDoId,
   createToDo,
   deleteToDoById,
   toggleToDoActiveStatusById,
@@ -10,7 +9,8 @@ import {
   resetToDos,
 } from '../store/slices/toDos.slice';
 import * as toDosService from '../services/toDos.service';
-import { DocumentData, QuerySnapshot } from 'firebase/firestore';
+import { DocumentData, QuerySnapshot, Timestamp } from 'firebase/firestore';
+import { ToDoId } from '../utils/interfaces/todo.interface';
 
 const useToDo = () => {
   const dispatch = useAppDispatch();
@@ -27,15 +27,20 @@ const useToDo = () => {
     }
   }, [toDos, filter]);
 
-  const toDosLeft = useMemo(() => {
-    return toDos.filter((toDo) => toDo.active).length;
-  }, [toDos]);
+  const sortedToDos = useMemo(
+    () => [...filteredToDos].sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis()),
+    [filteredToDos]
+  );
 
-  const createNewToDo = (toDoValue: string) => {
+  const toDosLeft = useMemo(() => toDos.filter((toDo) => toDo.active).length, [toDos]);
+
+  const createNewToDo = (value: string) => {
     dispatch(
       createToDo({
         id: crypto.randomUUID(),
-        value: toDoValue,
+        value,
+        active: true,
+        createdAt: Timestamp.now(),
       })
     );
   };
@@ -64,7 +69,7 @@ const useToDo = () => {
   };
 
   return {
-    filteredToDos,
+    sortedToDos,
     toDosLeft,
     filter,
     createNewToDo,

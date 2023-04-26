@@ -1,7 +1,6 @@
 import { Middleware } from '@reduxjs/toolkit';
 import * as toDosService from '../../services/toDos.service';
 import {
-  ToDo,
   createToDo,
   deleteToDoById,
   rollbackCreateToDo,
@@ -11,6 +10,7 @@ import {
 } from '../slices/toDos.slice';
 import { notificationError } from '../../utils/functions/notifications';
 import i18next from 'i18next';
+import { ToDo } from '../../utils/interfaces/todo.interface';
 
 const toDosMiddleware: Middleware = (store) => (next) => (action) => {
   const { type, payload } = action;
@@ -21,10 +21,10 @@ const toDosMiddleware: Middleware = (store) => (next) => (action) => {
 
   switch (type) {
     case createToDo.type: {
-      const { id, value } = payload;
+      const toDo = payload;
 
-      toDosService.createToDo(id, value).catch((e) => {
-        store.dispatch(rollbackCreateToDo(id));
+      toDosService.createToDo(toDo).catch((e) => {
+        store.dispatch(rollbackCreateToDo(toDo.id));
 
         notificationError(i18next.t('notifications.errorCreatingToDo'));
       });

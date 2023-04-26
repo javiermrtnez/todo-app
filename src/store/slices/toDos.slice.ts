@@ -1,19 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-
-export type ToDoId = string;
-export type ToDoValue = string;
-
-// Define a type for the slice state
-export interface ToDo {
-  id: ToDoId;
-  value: ToDoValue;
-  active: boolean;
-}
-
-export interface ToDoIdValue {
-  id: ToDoId;
-  value: ToDoValue;
-}
+import { ToDo, ToDoId } from '../../utils/interfaces/todo.interface';
 
 // Define the initial state using that type
 const initialState: ToDo[] = [];
@@ -25,14 +11,9 @@ export const toDosSlice = createSlice({
     setToDos: (state, action: PayloadAction<ToDo[]>) => {
       return action.payload;
     },
-    createToDo: (state, action: PayloadAction<ToDoIdValue>) => {
-      const { id, value } = action.payload;
-
-      state.unshift({
-        id,
-        value,
-        active: true,
-      });
+    createToDo: (state, action: PayloadAction<ToDo>) => {
+      const toDo = action.payload;
+      state.unshift(toDo);
     },
     rollbackCreateToDo: (state, action: PayloadAction<ToDoId>) => {
       const id = action.payload;

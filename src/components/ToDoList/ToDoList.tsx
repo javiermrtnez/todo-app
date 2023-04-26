@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 const ToDoList = () => {
   const { t } = useTranslation();
-  const { toDosLeft, filteredToDos, filter, deleteToDo, toggleToDoActiveStatus, setFilter } =
+  const { toDosLeft, sortedToDos, filter, deleteToDo, toggleToDoActiveStatus, setFilter } =
     useToDo();
 
   const handleFilterButton = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -21,8 +21,8 @@ const ToDoList = () => {
 
   return (
     <SCToDoList>
-      {filteredToDos.length > 0 ? (
-        filteredToDos.map(({ id, value, active }) => (
+      {sortedToDos.length > 0 ? (
+        sortedToDos.map(({ id, value, active }) => (
           <div className='todo-item' key={id}>
             <div className='checkbox-text-container'>
               <input
