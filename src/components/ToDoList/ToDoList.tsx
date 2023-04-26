@@ -5,7 +5,7 @@ import { CrossIcon } from '../Icons/Icons';
 import { useTranslation } from 'react-i18next';
 
 const ToDoList = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { toDosLeft, sortedToDos, filter, deleteToDo, toggleToDoActiveStatus, setFilter } =
     useToDo();
 
@@ -19,32 +19,51 @@ const ToDoList = () => {
     [FILTERS.COMPLETE]: t('toDoPage.noToDoItems.completed'),
   };
 
+  const DATE_OPTIONS: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+  };
+
   return (
     <SCToDoList>
       {sortedToDos.length > 0 ? (
-        sortedToDos.map(({ id, value, active }) => (
-          <div className='todo-item' key={id}>
-            <div className='checkbox-text-container'>
-              <input
-                checked={!active}
-                type='checkbox'
-                onChange={() => {
-                  toggleToDoActiveStatus(id);
+        sortedToDos.map(({ id, value, active, createdAt }) => (
+          <>
+            <div className='todo-item' key={id}>
+              <div className='checkbox-text-container'>
+                <input
+                  checked={!active}
+                  type='checkbox'
+                  onChange={() => {
+                    toggleToDoActiveStatus(id);
+                  }}
+                />
+
+                <div className='text-date-container'>
+                  <span className={`todo-text${!active ? ' completed' : ''}`}>{value}</span>
+
+                  <span className='date'>
+                    {t('toDoPage.createdAt', {
+                      createdAtDate: createdAt.toDate().toLocaleString(i18n.language, DATE_OPTIONS),
+                      interpolation: { escapeValue: false },
+                    })}
+                  </span>
+                </div>
+              </div>
+
+              <button
+                className='remove-button'
+                onClick={() => {
+                  deleteToDo(id);
                 }}
-              />
-
-              <span className={`todo-text${!active ? ' completed' : ''}`}>{value}</span>
+              >
+                <CrossIcon />
+              </button>
             </div>
-
-            <button
-              className='remove-button'
-              onClick={() => {
-                deleteToDo(id);
-              }}
-            >
-              <CrossIcon />
-            </button>
-          </div>
+          </>
         ))
       ) : (
         <div className='todo-item'>

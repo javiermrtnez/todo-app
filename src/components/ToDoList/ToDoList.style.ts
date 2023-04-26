@@ -62,32 +62,44 @@ const SCToDoList = styled.div`
         }
       }
 
-      .todo-text {
-        overflow: hidden;
-        word-wrap: break-word;
-        color: var(--geist-foreground);
+      .text-date-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
         /* 42.5px = ancho del checkbox (25px) + gap entre checkbox y texto (17.5px) */
-        max-width: calc(100% - 42.5px);
+        /* max-width: calc(100% - 42.5px); */
+        flex: 1;
+
+        .todo-text {
+          overflow: hidden;
+          word-wrap: break-word;
+          color: var(--geist-foreground);
+        }
+
+        .completed {
+          color: var(--accents-5);
+          text-decoration: line-through;
+        }
+
+        .date {
+          font-size: 14px;
+          color: var(--accents-4);
+        }
       }
-
-      .completed {
-        color: var(--accents-4);
-        text-decoration: line-through;
-      }
     }
+  }
 
-    .remove-button {
-      opacity: 0;
-      padding: 5px;
-      transition: opacity 200ms ease 0s;
-    }
+  .remove-button {
+    opacity: 0;
+    padding: 5px;
+    transition: opacity 200ms ease 0s;
+  }
 
-    .todo-empty-text {
-      width: 100%;
-      text-align: center;
-      color: var(--accents-4);
-    }
+  .todo-empty-text {
+    width: 100%;
+    text-align: center;
+    color: var(--accents-4);
   }
 
   .todo-resume-item {
