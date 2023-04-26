@@ -30,8 +30,6 @@ const Navbar = () => {
   //   document.body.style.position = !isMobileMenuOpen ? 'fixed' : '';
   // };
 
-  console.log('document.body.style.position', document.body.style.position);
-
   return (
     <SCNavbar>
       <header className='app-header'>
