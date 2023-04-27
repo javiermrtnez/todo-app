@@ -31,3 +31,14 @@ This project was built using the following stack:
 * 🗒 Save, remove, list and change status of ToDos.
 * 📱 Fully Responsive
 * ☀️ Light and Dark Theme
+
+## Screenshots
+- Log in
+![image](https://user-images.githubusercontent.com/121065277/234902437-0f56c3ea-dfb7-4cd9-9f90-23678b0f2f0a.png)
+
+- Sign up
+![image](https://user-images.githubusercontent.com/121065277/234902508-c9b556c9-7e5b-42c3-b612-b1be4cd64cbf.png)
+
+- ToDo App
+![image](https://user-images.githubusercontent.com/121065277/234903626-fce83f4e-03da-4ee0-8f85-401dce199697.png)
+
