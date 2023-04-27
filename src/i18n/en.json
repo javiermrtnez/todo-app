@@ -39,7 +39,6 @@
   "toDoPage": {
     "title": "My ToDos",
     "createNewTodo": "Create a new ToDo...",
-    "createdAt": "Created at {{createdAtDate}}",
     "itemsLeft": "{{numItemsLeft}} items left",
     "noToDoItems": {
       "left": "No ToDo items left!",

@@ -46,10 +46,7 @@ const ToDoList = () => {
                   <span className={`todo-text${!active ? ' completed' : ''}`}>{value}</span>
 
                   <span className='date'>
-                    {t('toDoPage.createdAt', {
-                      createdAtDate: createdAt.toDate().toLocaleString(i18n.language, DATE_OPTIONS),
-                      interpolation: { escapeValue: false },
-                    })}
+                    {createdAt.toDate().toLocaleString(i18n.language, DATE_OPTIONS)}
                   </span>
                 </div>
               </div>
