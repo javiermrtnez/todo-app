@@ -34,13 +34,13 @@ This project was built using the following stack:
 
 ## Screenshots
 ### Log in
-<img src="https://user-images.githubusercontent.com/121065277/234902437-0f56c3ea-dfb7-4cd9-9f90-23678b0f2f0a.png" alt="Alt text" style="box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);">
+![image](https://user-images.githubusercontent.com/121065277/234902437-0f56c3ea-dfb7-4cd9-9f90-23678b0f2f0a.png)
 
 ### Sign up
-<img src="https://user-images.githubusercontent.com/121065277/234902508-c9b556c9-7e5b-42c3-b612-b1be4cd64cbf.png" alt="Alt text" style="box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);">
+![image](https://user-images.githubusercontent.com/121065277/234902508-c9b556c9-7e5b-42c3-b612-b1be4cd64cbf.png)
 
 ### ToDo App (Dark)
-<img src="https://user-images.githubusercontent.com/121065277/234903626-fce83f4e-03da-4ee0-8f85-401dce199697.png" alt="Alt text" style="box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);">
+![image](https://user-images.githubusercontent.com/121065277/234903626-fce83f4e-03da-4ee0-8f85-401dce199697.png)
 
 ### ToDo App (Light)
-<img src="https://user-images.githubusercontent.com/121065277/234904022-1c81df31-948b-418f-86db-9e338c63114b.png" alt="Alt text" style="box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);">
+![image](https://user-images.githubusercontent.com/121065277/234904022-1c81df31-948b-418f-86db-9e338c63114b.png)
