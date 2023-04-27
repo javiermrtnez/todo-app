@@ -39,6 +39,8 @@ This project was built using the following stack:
 ### Sign up
 ![image](https://user-images.githubusercontent.com/121065277/234902508-c9b556c9-7e5b-42c3-b612-b1be4cd64cbf.png)
 
-### ToDo App
+### ToDo App (Dark)
 ![image](https://user-images.githubusercontent.com/121065277/234903626-fce83f4e-03da-4ee0-8f85-401dce199697.png)
 
+### ToDo App (Light)
+![image](https://user-images.githubusercontent.com/121065277/234904022-1c81df31-948b-418f-86db-9e338c63114b.png)
