@@ -15,7 +15,7 @@
   </p>
 <br/>
 
-## Built With 🚀
+## Stack 🚀
 This project was built using the following stack:
 
 -   Framework -  [Vite 4.3](https://vitejs.dev/)
@@ -28,6 +28,6 @@ This project was built using the following stack:
 -   Formatting -  [Prettier](https://prettier.io/)
 
 ## Features
-
+* 🗒 Save, remove, list and change status of ToDos.
 * 📱 Fully Responsive
 * ☀️ Light and Dark Theme
