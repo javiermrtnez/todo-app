@@ -7,7 +7,7 @@ const SCNotFoundPage = styled.div`
   gap: 20px;
 
   .vertical-separator {
-    height: 150%;
+    height: 45px;
     border-right: 1px solid rgba(255, 255, 255, 0.3);
   }
 `;
